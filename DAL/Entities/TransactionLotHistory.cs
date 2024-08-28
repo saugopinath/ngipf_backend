@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("transaction_lot_history ", Schema = "cts_payment")]
 public partial class TransactionLotHistory

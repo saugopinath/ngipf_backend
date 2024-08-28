@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Schema;
 
-namespace NGIPF_BE.Helper
+namespace ngipf_frontend.Helper
 {
     public class XmlHelper
     {

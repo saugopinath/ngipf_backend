@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("pf_tm_tr43_bill_consolidated", Schema = "ngipf")]
 public partial class PfTmTr43BillConsolidated

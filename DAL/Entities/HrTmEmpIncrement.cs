@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("hr_tm_emp_increment", Schema = "ihrms")]
 [Index("IntSrvId", Name = "ind_hr_tm_emp_incr1")]

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("cheque_count", Schema = "cts")]
 [Index("FinancialYearId", "TreasuryCode", "MicrCode", Name = "cheque_count_financial_year_id_treasury_code_micr_code_key", IsUnique = true)]

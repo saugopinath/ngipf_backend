@@ -1,6 +1,6 @@
-﻿using NGIPF_BE.Helper.Authentication;
+﻿using ngipf_frontend.Helper.Authentication;
 
-namespace NGIPF_BE.Middlewares
+namespace ngipf_frontend.Middlewares
 {
 
     public class AuthTokenMiddleware

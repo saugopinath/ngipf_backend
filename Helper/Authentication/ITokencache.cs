@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NGIPF_BE.Helper.Authentication
+namespace ngipf_frontend.Helper.Authentication
 {
     public interface ITokencache
     {

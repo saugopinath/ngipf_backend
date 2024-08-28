@@ -1,6 +1,6 @@
-﻿//using NGIPF_BE.DAL.Enums;
-using NGIPF_BE.Model;
-using NGIPF_BE.Model.Claims;
+﻿//using ngipf_frontend.DAL.Enums;
+using ngipf_frontend.Model;
+using ngipf_frontend.Model.Claims;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -13,7 +13,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NGIPF_BE.Helper.Authentication
+namespace ngipf_frontend.Helper.Authentication
 {
     public class TokenHelper : ITokenHelper
     {

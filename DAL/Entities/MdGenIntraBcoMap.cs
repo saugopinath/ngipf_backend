@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [PrimaryKey("BcoCode", "MapBcoCode")]
 [Table("md_gen_intra_bco_map", Schema = "ifmsadmin")]

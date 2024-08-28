@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.DTOs
+﻿namespace ngipf_frontend.DTOs
 {
     public class EmpLFOperatorDTO
     {
@@ -8,6 +8,6 @@
         public string? LFOperatoHOA { get; set; }
         public string? LFOperatorTreasuryName { get; set; }
         public string? LFOperatorTreasuryCode { get; set; }
-        public date? LFOperatorDetailsEF { get; set; }
+        public DateOnly? LFOperatorDetailsEF { get; set; }
     }
 }

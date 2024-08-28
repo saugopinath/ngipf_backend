@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-namespace NGIPF_BE.Helper
+namespace ngipf_frontend.Helper
 {
     public class MapperClass : Profile
     {

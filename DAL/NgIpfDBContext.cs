@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using NGIPF_BE.DAL.Entities;
+using ngipf_frontend.DAL.Entities;
 
-namespace NGIPF_BE.DAL;
+namespace ngipf_frontend.DAL;
 
 public partial class NgIpfDBContext : DbContext
 {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("ddo_allotment_booked_bill", Schema = "billing")]
 [Index("ActiveHoaId", Name = "fki_active_hoa_id_bantan_master_hoa_id")]

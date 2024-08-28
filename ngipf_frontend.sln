@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGIPF-BE", "NGIPF-BE.csproj", "{5B12E076-95E2-4A09-9D51-CBB8B97671FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ngipf_frontend", "ngipf_frontend.csproj", "{5B12E076-95E2-4A09-9D51-CBB8B97671FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

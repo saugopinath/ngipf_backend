@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("mm_pf_interest_rate", Schema = "ngipf")]
 [Index("Wef", Name = "uk_mm_gpf_interest_rate1", IsUnique = true)]

@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace NGIPF_BE.Helper
+namespace ngipf_frontend.Helper
 {
     public static class ExpressionHelper
     {

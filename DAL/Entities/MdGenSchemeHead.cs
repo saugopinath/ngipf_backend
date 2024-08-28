@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("md_gen_scheme_head", Schema = "ifmsadmin")]
 [Index("FinYearFrom", "DemandNo", "MajorHead", "SubmajorHead", "MinorHead", "SchemeHead", "PlanStatusCode", Name = "md_gen_scheme_head_fin_year_from_demand_no_major_head_subma_key", IsUnique = true)]

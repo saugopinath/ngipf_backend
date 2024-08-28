@@ -1,5 +1,5 @@
-﻿//using NGIPF_BE.DAL.Enums;
-using NGIPF_BE.Model.Claims;
+﻿//using ngipf_frontend.DAL.Enums;
+using ngipf_frontend.Model.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace NGIPF_BE.Helper.Authentication
+namespace ngipf_frontend.Helper.Authentication
 {
     public interface ITokenHelper
     {

@@ -1,6 +1,6 @@
-﻿using NGIPF_BE.Enum;
+﻿using ngipf_frontend.Enum;
 
-namespace NGIPF_BE.Helper
+namespace ngipf_frontend.Helper
 {
     public class APIResponse<T>
     {

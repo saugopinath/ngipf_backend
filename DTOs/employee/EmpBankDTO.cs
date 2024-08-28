@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.DTOs
+﻿namespace ngipf_frontend.DTOs
 {
     public class EmpBankDTO
     {
@@ -7,7 +7,7 @@
         public string? BankName { get; set; }
         public string? AccountNumber { get; set; }
         public string? BeneficiaryName { get; set; }
-        public date? BankDetailsEF { get; set; }
+        public DateOnly? BankDetailsEF { get; set; }
         public string? Remarks { get; set; }
     }
 }

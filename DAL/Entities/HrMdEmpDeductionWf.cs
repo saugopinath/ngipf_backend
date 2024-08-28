@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("hr_md_emp_deduction_wf", Schema = "ihrms")]
 [Index("IntEmployeeId", Name = "ind_hr_md_emp_deduction_wf1")]

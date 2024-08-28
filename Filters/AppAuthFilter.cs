@@ -1,6 +1,6 @@
-﻿using NGIPF_BE.Common;
-using NGIPF_BE.Helper.Authentication;
-using NGIPF_BE.Model.Claims;
+﻿using ngipf_frontend.Common;
+using ngipf_frontend.Helper.Authentication;
+using ngipf_frontend.Model.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Security.Claims;
 
 
-namespace NGIPF_BE.Filters
+namespace ngipf_frontend.Filters
 {
     //public class DBTDashboardAuthFilter
 

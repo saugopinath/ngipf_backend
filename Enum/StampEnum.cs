@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.Enum
+﻿namespace ngipf_frontend.Enum
 {
     //public enum StampIndentStatusEnum
     //{

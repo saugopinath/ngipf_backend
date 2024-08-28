@@ -1,5 +1,5 @@
-using NGIPF_BE.DAL.Entities;
-namespace NGIPF_BE.DAL.Interfaces
+using ngipf_frontend.DAL.Entities;
+namespace ngipf_frontend.DAL.Interfaces
 {
     public interface IEmpBankAccountRepository: IRepository<HrMdEmpBankAccount>
     {

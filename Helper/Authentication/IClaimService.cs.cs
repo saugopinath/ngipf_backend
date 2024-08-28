@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.Helper.Authentication
+﻿namespace ngipf_frontend.Helper.Authentication
 {
     public interface IClaimService
     {

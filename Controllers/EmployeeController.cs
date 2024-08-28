@@ -1,11 +1,11 @@
 
-using NGIPF_BE.BAL.Interfaces;
-using NGIPF_BE.DTOs;
-using NGIPF_BE.Helper;
+using ngipf_frontend.BAL.Interfaces;
+using ngipf_frontend.DTOs;
+using ngipf_frontend.Helper;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace NGIPF_BE.Controllers
+namespace ngipf_frontend.Controllers
 {
    
     [ApiController]
@@ -22,38 +22,10 @@ namespace NGIPF_BE.Controllers
        
         public EmployeeController()
         {
-            _empBasicService = empBasicService;
-            _empWorkingService = empWorkingService;
-            _empAddressService = empAddressService;
-            _empSalaryHeadService = empSalaryHeadService;
-            _empPayInformationService = empPayInformationService;
-            _empHOOMapService = empHOOMapService;
-            _empOtherService = empOtherService;
-        }
-        [HttpGet("getEmpList/{salary_source}")]
-        public async Task<APIResponse<List<DropdownStringCodeDTO>>> getEmployees(string salary_source)
-        {
-
-            APIResponse<List<EmpDTO>> response = new();
-            try
-            {
-                response.apiResponseStatus = Enum.APIResponseStatus.Success;
-
-                response.result = await _treasuryService.GetTreasurys();
-                response.Message = "";
-                return response;
-            }
-            catch (Exception Ex)
-            {
-                response.apiResponseStatus = Enum.APIResponseStatus.Error;
-                response.Message = Ex.Message;
-                return response;
-            }
             
-
-           
         }
-        
+       
+       
        
        
        

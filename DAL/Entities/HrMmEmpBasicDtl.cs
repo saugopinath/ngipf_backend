@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("hr_mm_emp_basic_dtls", Schema = "ihrms_emp_master")]
 [Index("IntEmployeeIdOld", Name = "hr_mm_emp_basic_dtls_int_employee_id_old_key", IsUnique = true)]

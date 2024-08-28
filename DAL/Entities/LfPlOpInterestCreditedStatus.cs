@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [PrimaryKey("IntOperatorId", "FinancialYearCodeUpto")]
 [Table("lf_pl_op_interest_credited_status", Schema = "ngipf")]

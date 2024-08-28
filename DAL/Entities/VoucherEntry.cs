@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("voucher_entry", Schema = "cts")]
 [Index("TreasuryCode", "Month", "FinancialYearId", "MajorHead", Name = "voucher_entry_treasury_code_month_financial_year_id_major_h_key", IsUnique = true)]

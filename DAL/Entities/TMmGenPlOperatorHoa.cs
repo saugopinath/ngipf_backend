@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [PrimaryKey("HoaId", "OperatorType", "OperatorSubType", "PayRecFlag")]
 [Table("t_mm_gen_pl_operator_hoa", Schema = "icts")]

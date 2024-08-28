@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace NGIPF_BE.Model.Claims
+namespace ngipf_frontend.Model.Claims
 {
     public class AuthClaimModel
     {

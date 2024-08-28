@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.DTOs
+﻿namespace ngipf_frontend.DTOs
 {
     public class EmpOtherDTO
     {

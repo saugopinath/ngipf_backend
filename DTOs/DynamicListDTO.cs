@@ -1,4 +1,4 @@
-﻿namespace NGIPF_BE.DTOs
+﻿namespace  
 {
     public class DynamicListQueryParameters
     {

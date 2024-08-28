@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("beneficiary_master", Schema = "epradan")]
 [Index("BeneficiaryType", Name = "fki_beneficiary_master_beneficiary_type_fkey")]

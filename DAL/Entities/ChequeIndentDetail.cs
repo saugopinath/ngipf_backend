@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("cheque_indent_details", Schema = "cts")]
 [Index("ChequeIndentId", Name = "fki_cheque_indent_details-cheque_indent_id-fkey")]

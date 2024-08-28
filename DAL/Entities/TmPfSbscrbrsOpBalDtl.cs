@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("tm_pf_sbscrbrs_op_bal_dtls", Schema = "ngipf")]
 [Index("PrevIntRequestId", Name = "uk_tm_gpf_sbscrbrs_op_bal_dtls", IsUnique = true)]

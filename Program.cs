@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
-using NGIPF_BE.DAL;
-using NGIPF_BE.DAL.Interfaces;
-using NGIPF_BE.BAL.Interfaces;
-using NGIPF_BE.BAL;
-using NGIPF_BE.Middlewares;
-using NGIPF_BE.Helper.Authentication;
+using ngipf_frontend.DAL;
+using ngipf_frontend.DAL.Interfaces;
+using ngipf_frontend.BAL.Interfaces;
+using ngipf_frontend.BAL;
+using ngipf_frontend.Middlewares;
+using ngipf_frontend.Helper.Authentication;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Mvc;
-using NGIPF_BE.Enum;
-using NGIPF_BE.Helper;
+using ngipf_frontend.Enum;
+using ngipf_frontend.Helper;
 using System.Collections;
-using NGIPF_BE.DAL.Repositories.main_master;
+using ngipf_frontend.DAL.Repositories.main_master;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,15 +33,9 @@ builder.Services.AddTransient<ILfplopRepository, LfplopRepository>();
 builder.Services.AddTransient<INgipfOfficeRepository, NgipfOfficeRepository>();
 builder.Services.AddTransient<IHoaRepository, HoaRepository>();
 builder.Services.AddTransient<IDdoRepository, DdoRepository>();
+builder.Services.AddTransient<IEmpPfBasicRepository, EmpPfBasicRepository>();
 
-builder.Services.AddTransient<IEmpAddressRepository, EmpAddressRepository>();
-builder.Services.AddTransient<IEmpBankAccountRepository, EmpBankAccountRepository>();
-builder.Services.AddTransient<IEmpBasicRepository, EmpBasicRepository>();
-builder.Services.AddTransient<IEmpHOOMapRepository, EmpHOOMapRepository>();
-builder.Services.AddTransient<IEmpOtherRepository, EmpOtherRepository>();
-builder.Services.AddTransient<IEmpPayInformationRepository, EmpPayInformationRepository>();
-builder.Services.AddTransient<IEmpSalaryHeadRepository, EmpSalaryHeadRepository>();
-builder.Services.AddTransient<IEmpWorkingRepository, EmpWorkingRepository>();
+
 
 //Services
 
@@ -50,16 +44,9 @@ builder.Services.AddTransient<ILfplopService, LfplopService>();
 builder.Services.AddTransient<INgipfOfficeService, NgipfOfficeService>();
 builder.Services.AddTransient<IHoaService, HoaService>();
 builder.Services.AddTransient<IDdoService, DdoService>();
+builder.Services.AddTransient<IEmpPfBasicService, EmpPfBasicService>();
 
-builder.Services.AddTransient<IEmpAddressService, EmpAddressService>();
-builder.Services.AddTransient<IEmpBankAccountService, EmpBankAccountService>();
-builder.Services.AddTransient<IEmpBasicService, EmpBasicService>();
-builder.Services.AddTransient<IEmpHOOMapService, EmpHOOMapService>();
-builder.Services.AddTransient<IEmpOtherService, EmpOtherService>();
-builder.Services.AddTransient<IEmpPayInformationService, EmpPayInformationService>();
-builder.Services.AddTransient<IEmpSalaryHeadService, EmpSalaryHeadService>();
-builder.Services.AddTransient<IDdoRepository, DdoRepository>();
-builder.Services.AddTransient<IEmpWorkingService, EmpWorkingService>();
+
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();
 builder.Services.AddSingleton<ITokencache, Tokencache>();

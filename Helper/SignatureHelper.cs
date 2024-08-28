@@ -12,7 +12,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.X509;
-namespace NGIPF_BE.Helper
+namespace ngipf_frontend.Helper
 {
     public static class SignatureHelper
     {

@@ -1,10 +1,9 @@
-using NGIPF_BE.DTOs;
+using ngipf_frontend.DTOs;
 
-namespace NGIPF_BE.BAL.Interfaces
+namespace ngipf_frontend.BAL.Interfaces
 {
     public interface IEmpBasicService
     {
-        public Task<List<EmpPersonalDTO>> GetEmpBasic();
         public Task<List<EmpPersonalDTO>> GetEmpBasic(int empId);
     }
 }

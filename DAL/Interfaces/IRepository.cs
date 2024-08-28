@@ -1,8 +1,8 @@
-﻿using NGIPF_BE.DTOs;
+﻿using ngipf_frontend.DTOs;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
 
-namespace NGIPF_BE.DAL.Interfaces
+namespace ngipf_frontend.DAL.Interfaces
 {
     public interface IRepository<T>
     {

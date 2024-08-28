@@ -1,7 +1,7 @@
-﻿using NGIPF_BE.Model.Claims;
+﻿using ngipf_frontend.Model.Claims;
 using Newtonsoft.Json;
 
-namespace NGIPF_BE.Helper.Authentication
+namespace ngipf_frontend.Helper.Authentication
 {
     public class ClaimService: IClaimService
     {

@@ -1,11 +1,11 @@
 using AutoMapper;
-using NGIPF_BE.BAL.Interfaces;
-using NGIPF_BE.DAL;
-using NGIPF_BE.DAL.Entities;
-using NGIPF_BE.DAL.Interfaces;
-using NGIPF_BE.DTOs;
+using ngipf_frontend.BAL.Interfaces;
+using ngipf_frontend.DAL;
+using ngipf_frontend.DAL.Entities;
+using ngipf_frontend.DAL.Interfaces;
+using ngipf_frontend.DTOs;
 using static Dapper.SqlMapper;
-namespace NGIPF_BE.BAL
+namespace ngipf_frontend.BAL
 {
     public class LfplopService : ILfplopService
     {

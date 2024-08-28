@@ -1,10 +1,9 @@
-using NGIPF_BE.DTOs;
+using ngipf_frontend.DTOs;
 
-namespace NGIPF_BE.BAL.Interfaces
+namespace ngipf_frontend.BAL.Interfaces
 {
     public interface IEmpSalaryHeadService
     {
-        public Task<List<EmpSalaryHeadDTO>> GetEmpSalaryHead();
         public Task<List<EmpSalaryHeadDTO>> GetEmpSalaryHead(int empId);
     }
 }

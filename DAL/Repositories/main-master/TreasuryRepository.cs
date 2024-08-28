@@ -1,6 +1,6 @@
-using NGIPF_BE.DAL.Entities;
-using NGIPF_BE.DAL.Interfaces;
-namespace NGIPF_BE.DAL
+using ngipf_frontend.DAL.Entities;
+using ngipf_frontend.DAL.Interfaces;
+namespace ngipf_frontend.DAL
 {
    public class TreasuryRepository : Repository<MmGenTreasury, NgIpfDBContext>, ITreasuryRepository
    {

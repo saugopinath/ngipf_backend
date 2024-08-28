@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("pf_mm_gen_other_master", Schema = "ngipf")]
 [Index("MasterAbbr", Name = "uk_pf_mm_gen_other_master1", IsUnique = true)]

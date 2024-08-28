@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace NGIPF_BE.DAL.Entities;
+namespace ngipf_frontend.DAL.Entities;
 
 [Table("mm_gen_ddo", Schema = "ifmsadmin")]
 [Index("DdoCode", Name = "mm_gen_ddo_ddo_code_key", IsUnique = true)]
