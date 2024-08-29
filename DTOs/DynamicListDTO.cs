@@ -1,4 +1,4 @@
-﻿namespace  
+﻿namespace ngipf_frontend.DTOs
 {
     public class DynamicListQueryParameters
     {
@@ -7,7 +7,7 @@
         public int PageIndex { get; set; } = 0;
         public List<FilterParameter>? filterParameters { get; set; }
         public SortParameter? sortParameters { get; set; }
-    }    
+    }
     public class FilterParameter
     {
         public string? Field { get; set; }
@@ -22,6 +22,7 @@
     public class DynamicListResult<T>
     {
         public List<ListHeader> Headers { get; set; }
+        public List<ListHeader>? childHeaders { get; set; }
         public T Data { get; set; }
         public int DataCount { get; set; }
     }
@@ -31,6 +32,8 @@
         public string DataType { get; set; }
         public string FieldName { get; set; }
         public string FilterField { get; set; }
+        public bool? Collapsible { get; set; }
+
         public List<FilterEnum>? FilterEnums { get; set; }
         public bool IsSortable { get; set; }
         public bool IsFilterable { get; set; }

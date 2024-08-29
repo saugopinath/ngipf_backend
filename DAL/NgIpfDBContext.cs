@@ -494,6 +494,8 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<StakeHolderMapping> StakeHolderMappings { get; set; }
 
+    public virtual DbSet<StatusMaster> StatusMasters { get; set; }
+
     public virtual DbSet<TMmGenPlOperator> TMmGenPlOperators { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -579,10 +581,14 @@ public partial class NgIpfDBContext : DbContext
 
             entity.HasOne(d => d.IntOperator).WithMany(p => p.EmpPfBasicDetails).HasConstraintName("fk_emp_pf_basic_details_op_code");
 
+            entity.HasOne(d => d.IntSalarySourceNavigation).WithMany(p => p.EmpPfBasicDetailIntSalarySourceNavigations).HasConstraintName("fk_emp_pf_basic_details_salary_source");
+
             entity.HasOne(d => d.IntTreasuryCodeNavigation).WithMany(p => p.EmpPfBasicDetails)
                 .HasPrincipalKey(p => p.IntTreasuryCode)
                 .HasForeignKey(d => d.IntTreasuryCode)
                 .HasConstraintName("fk_emp_pf_basic_details_trasury");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.EmpPfBasicDetailStatusNavigations).HasConstraintName("fk_emp_pf_basic_details_status");
         });
 
         modelBuilder.Entity<EmpPfOfficeDetail>(entity =>
@@ -1407,6 +1413,11 @@ public partial class NgIpfDBContext : DbContext
         modelBuilder.Entity<StakeHolderMapping>(entity =>
         {
             entity.Property(e => e.IntStakeHolderMapping).ValueGeneratedOnAdd();
+        });
+
+        modelBuilder.Entity<StatusMaster>(entity =>
+        {
+            entity.HasKey(e => e.IntMasterId).HasName("status_master_pkey");
         });
 
         modelBuilder.Entity<TMmGenPlOperator>(entity =>

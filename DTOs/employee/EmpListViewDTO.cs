@@ -3,9 +3,9 @@
     public class EmpListViewDTO
     {
         public string? PFAccountNumber { get; set; } 
-        public string? EmpId { get; set; }
-        public string? Name { get; set; }
-        public DateOnly? Doj { get; set; }
+        public string NameWithEmpid { get; set; }
+        public string? Doj { get; set; }
         public string? Status { get; set; }
+        public int IntEmployeeId { get; set; }
     }
 }

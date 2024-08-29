@@ -21,15 +21,22 @@ namespace ngipf_frontend.BAL
         //{
         //    return (List<DropdownStringCodeDTO>)await _EmpPfBasicRepository.GetSelectedColumnByConditionAsync(entity => entity.IntEmployeeId != null && entity.IntDdo != null , entity => new DropdownStringCodeDTO
         //    {
-               
+
         //    });
         //}
-        public async Task<List<EmpListViewDTO>> GetEmpList(DynamicListQueryParameters dynamicListQueryParameters)
+        public async Task<IEnumerable<EmpListViewDTO>> GetEmpList(string tresuary_code, int op_code, int salary_source, DynamicListQueryParameters dynamicListQueryParameters)
         {
-            return (List<EmpListViewDTO>)await _EmpPfBasicRepository.GetSelectedColumnByConditionAsync(entity =>true, entity => new DropdownStringCodeDTO
-            {
 
-            },dynamicListQueryParameters);
+            return await _EmpPfBasicRepository.GetSelectedColumnByConditionAsync(entity => entity.IntTreasuryCode == tresuary_code && entity.IntOperatorId == op_code && entity.IntSalarySource == salary_source, entity => new EmpListViewDTO
+            {
+                PFAccountNumber = entity.PfAacountNo,
+                //NameWithEmpid = String.Format("{0} {1} {2} {3} ({4})", entity.EmpFirstName, entity.EmpMidName, entity.EmpLastName, entity.EmpId),
+                NameWithEmpid = entity.EmpFirstName+"  "+entity.EmpMidName + "  " + entity.EmpLastName + " ( " + entity.EmpId+" )",
+                Doj = entity.DateOfJoining.Value.ToString("dd/MM/yyyy"),
+                Status = entity.StatusNavigation.MasterAbbr,
+                IntEmployeeId = entity.IntEmployeeId
+            }, dynamicListQueryParameters);
+            
         }
     }
 }

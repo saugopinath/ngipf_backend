@@ -89,8 +89,8 @@ namespace ngipf_frontend.DAL
             DynamicListQueryParameters dynamicListQueryParameters
         )
         {
-            int pageIndex = dynamicListQueryParameters.PageIndex;
-            int pageSize = dynamicListQueryParameters.PageSize;
+            int pageIndex = (dynamicListQueryParameters.PageIndex!=null)? dynamicListQueryParameters.PageIndex:0;
+            int pageSize = (dynamicListQueryParameters.PageSize!=null)?dynamicListQueryParameters.PageSize:10;
             List<FilterParameter> dynamicFilters = dynamicListQueryParameters.filterParameters;
             string orderByField = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Field : null;
             string orderByOrder = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Order : null;
@@ -120,7 +120,7 @@ namespace ngipf_frontend.DAL
                     query = query.OrderByDescending(lambda);
                 }
             }
-            var result = await query.Select(selectExpression).Skip(pageIndex * pageSize).Take(pageSize).ToListAsync();
+            var result = await query.Select(selectExpression).ToListAsync();
             return result;
         }
         public async Task<ICollection<TResult>> GetSelectedColumnByConditionAsync<TResult>(
