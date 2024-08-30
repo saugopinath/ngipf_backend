@@ -23,24 +23,6 @@ public partial class MmGenNgipfOffice
     [StringLength(1)]
     public string? ActiveFlag { get; set; }
 
-    [Column("dml_status_flag")]
-    [Precision(1, 0)]
-    public decimal? DmlStatusFlag { get; set; }
-
-    [Column("created_user_id")]
-    [Precision(8, 0)]
-    public decimal? CreatedUserId { get; set; }
-
-    [Column("modified_user_id")]
-    [Precision(8, 0)]
-    public decimal? ModifiedUserId { get; set; }
-
-    [Column("created_timestamp")]
-    public DateOnly CreatedTimestamp { get; set; }
-
-    [Column("modified_timestamp")]
-    public DateOnly ModifiedTimestamp { get; set; }
-
     [Column("int_gen_ngipf_office_id_old")]
     [StringLength(38)]
     public string? IntGenNgipfOfficeIdOld { get; set; }
@@ -80,6 +62,24 @@ public partial class MmGenNgipfOffice
     [Column("int_pl_operator_id_old")]
     [StringLength(38)]
     public string? IntPlOperatorIdOld { get; set; }
+
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
 
     [ForeignKey("IntHeadOfOfficeId")]
     [InverseProperty("MmGenNgipfOffices")]

@@ -13,13 +13,6 @@ public partial class StakeHolderMapping
     [Column("int_stake_holder_mapping")]
     public int IntStakeHolderMapping { get; set; }
 
-    [Column("functionality_type")]
-    [StringLength(30)]
-    public string? FunctionalityType { get; set; }
-
-    [Column("int_pl_operator_id")]
-    public int? IntPlOperatorId { get; set; }
-
     [Column("sanc_auth_count")]
     public short? SancAuthCount { get; set; }
 
@@ -33,22 +26,6 @@ public partial class StakeHolderMapping
     [MaxLength(1)]
     public char? ActiveFlag { get; set; }
 
-    [Column("dml_status_flag")]
-    [StringLength(3)]
-    public string? DmlStatusFlag { get; set; }
-
-    [Column("created_user_id")]
-    public long? CreatedUserId { get; set; }
-
-    [Column("created_date")]
-    public DateOnly? CreatedDate { get; set; }
-
-    [Column("modified_user_id")]
-    public long? ModifiedUserId { get; set; }
-
-    [Column("modified_date")]
-    public DateOnly? ModifiedDate { get; set; }
-
     [Column("sanction_auth_nature")]
     public short? SanctionAuthNature { get; set; }
 
@@ -58,6 +35,39 @@ public partial class StakeHolderMapping
     [Column("reco_auth_required")]
     public bool? RecoAuthRequired { get; set; }
 
-    [Column("dept_hoa_id")]
-    public short? DeptHoaId { get; set; }
+    [Column("int_hoa_id")]
+    public int? IntHoaId { get; set; }
+
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [ForeignKey("IntHoaId")]
+    public virtual NgipfHoaList? IntHoa { get; set; }
+
+    [ForeignKey("RecoAuthNature")]
+    public virtual RecomandingNatureMst? RecoAuthNatureNavigation { get; set; }
+
+    [ForeignKey("RecomAuthCount")]
+    public virtual RecomandingAuthorityCountMst? RecomAuthCountNavigation { get; set; }
+
+    [ForeignKey("SancAuthCount")]
+    public virtual SanctionAdminCountMst? SancAuthCountNavigation { get; set; }
+
+    [ForeignKey("SanctionAuthNature")]
+    public virtual SanctionAdminNatureMst? SanctionAuthNatureNavigation { get; set; }
 }

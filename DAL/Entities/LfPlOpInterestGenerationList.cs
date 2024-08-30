@@ -29,8 +29,30 @@ public partial class LfPlOpInterestGenerationList
     [Column("go_date")]
     public DateOnly? GoDate { get; set; }
 
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [Column("active_flag")]
+    [MaxLength(1)]
+    public char? ActiveFlag { get; set; }
+
     [ForeignKey("IntGenerationType")]
-    public virtual MmGenInterestGenerationMaster? IntGenerationTypeNavigation { get; set; }
+    public virtual InterestGenerationMst? IntGenerationTypeNavigation { get; set; }
 
     [ForeignKey("IntOperatorId")]
     public virtual TMmGenPlOperator IntOperator { get; set; } = null!;

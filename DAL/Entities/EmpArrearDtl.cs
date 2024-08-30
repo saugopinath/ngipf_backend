@@ -45,24 +45,27 @@ public partial class EmpArrearDtl
     [StringLength(1)]
     public string ActiveFlag { get; set; } = null!;
 
-    [Column("dml_status_flag")]
-    public short DmlStatusFlag { get; set; }
-
-    [Column("created_user_id")]
-    public int CreatedUserId { get; set; }
-
-    [Column("created_timestamp", TypeName = "timestamp(0) without time zone")]
-    public DateTime CreatedTimestamp { get; set; }
-
-    [Column("modified_user_id")]
-    public int ModifiedUserId { get; set; }
-
-    [Column("modified_timestamp", TypeName = "timestamp(0) without time zone")]
-    public DateTime ModifiedTimestamp { get; set; }
-
     [Column("ded_comp_mstr_abbr")]
     [StringLength(10)]
     public string? DedCompMstrAbbr { get; set; }
+
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
 
     [ForeignKey("IntEmployeeId")]
     [InverseProperty("EmpArrearDtls")]

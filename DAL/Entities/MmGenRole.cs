@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ngipf_frontend.DAL.Entities;
 
-[Keyless]
 [Table("mm_gen_role", Schema = "ifmsadmin")]
 public partial class MmGenRole
 {
@@ -32,9 +31,6 @@ public partial class MmGenRole
     [StringLength(38)]
     public string? RoleIdOld { get; set; }
 
-    [Column("role_id")]
-    public int? RoleId { get; set; }
-
     [Column("subsystem_id_old")]
     [StringLength(38)]
     public string? SubsystemIdOld { get; set; }
@@ -55,4 +51,11 @@ public partial class MmGenRole
 
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
+
+    [Key]
+    [Column("role_id")]
+    public int RoleId { get; set; }
+
+    [InverseProperty("IntRole")]
+    public virtual ICollection<WorkflowUserMapping> WorkflowUserMappings { get; set; } = new List<WorkflowUserMapping>();
 }

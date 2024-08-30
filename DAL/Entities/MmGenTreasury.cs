@@ -135,4 +135,7 @@ public partial class MmGenTreasury
     public virtual ICollection<EmpPfBasicDetail> EmpPfBasicDetails { get; set; } = new List<EmpPfBasicDetail>();
 
     public virtual ICollection<MmGenDdo> MmGenDdos { get; set; } = new List<MmGenDdo>();
+
+    [InverseProperty("IntTreasuryCodeNavigation")]
+    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 }

@@ -135,6 +135,18 @@ public partial class TMmGenPlOperator
     public int IntPlOperatorId { get; set; }
 
     [InverseProperty("IntOperator")]
+    public virtual ICollection<AdvanceAmountEligibilityMst> AdvanceAmountEligibilityMsts { get; set; } = new List<AdvanceAmountEligibilityMst>();
+
+    [InverseProperty("IntOperator")]
+    public virtual ICollection<AdvancePurposeAdvanceMapping> AdvancePurposeAdvanceMappings { get; set; } = new List<AdvancePurposeAdvanceMapping>();
+
+    [InverseProperty("IntOperator")]
+    public virtual ICollection<AdvanceRecoveryDurationEligibilityMst> AdvanceRecoveryDurationEligibilityMsts { get; set; } = new List<AdvanceRecoveryDurationEligibilityMst>();
+
+    [InverseProperty("IntOperator")]
+    public virtual ICollection<AdvanceServiceDurationEligibilityMst> AdvanceServiceDurationEligibilityMsts { get; set; } = new List<AdvanceServiceDurationEligibilityMst>();
+
+    [InverseProperty("IntOperator")]
     public virtual ICollection<EmpOpeningBalanceAccpeted> EmpOpeningBalanceAccpeteds { get; set; } = new List<EmpOpeningBalanceAccpeted>();
 
     [InverseProperty("IntOperator")]
@@ -157,4 +169,7 @@ public partial class TMmGenPlOperator
 
     [InverseProperty("IntOperator")]
     public virtual ICollection<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; } = new List<PlPfDdoHoaMap>();
+
+    [InverseProperty("IntOperator")]
+    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 }

@@ -91,7 +91,4 @@ public partial class MmGenHoa
     [Key]
     [Column("hoa_id")]
     public int HoaId { get; set; }
-
-    [InverseProperty("Hoa")]
-    public virtual ICollection<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; } = new List<PlPfDdoHoaMap>();
 }

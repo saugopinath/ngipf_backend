@@ -33,9 +33,31 @@ public partial class EmpOpeningBalanceAccpeted
     [Column("int_operator_id")]
     public int? IntOperatorId { get; set; }
 
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [Column("active_flag")]
+    [MaxLength(1)]
+    public char? ActiveFlag { get; set; }
+
     [ForeignKey("FinancialYear")]
     [InverseProperty("EmpOpeningBalanceAccpeteds")]
-    public virtual MmGenFinancialYear FinancialYearNavigation { get; set; } = null!;
+    public virtual FinancialYearMst FinancialYearNavigation { get; set; } = null!;
 
     [ForeignKey("IntEmployeeId")]
     [InverseProperty("EmpOpeningBalanceAccpeteds")]
@@ -47,5 +69,5 @@ public partial class EmpOpeningBalanceAccpeted
 
     [ForeignKey("OpType")]
     [InverseProperty("EmpOpeningBalanceAccpeteds")]
-    public virtual OpeningBalanceType? OpTypeNavigation { get; set; }
+    public virtual OpeningBalanceTypeMst? OpTypeNavigation { get; set; }
 }

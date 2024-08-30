@@ -18,11 +18,11 @@ public partial class EmpPfBasicDetail
 
     [Column("pf_aacount_no")]
     [StringLength(20)]
-    public string ? PfAacountNo { get; set; }
+    public string? PfAacountNo { get; set; }
 
     [Column("int_employee_id_old")]
     [StringLength(38)]
-    public string ? IntEmployeeIdOld { get; set; }
+    public string? IntEmployeeIdOld { get; set; }
 
     [Column("int_ddo_id")]
     public int? IntDdoId { get; set; }
@@ -32,19 +32,19 @@ public partial class EmpPfBasicDetail
 
     [Column("int_treasury_code")]
     [StringLength(5)]
-    public string ? IntTreasuryCode { get; set; }
+    public string? IntTreasuryCode { get; set; }
 
     [Column("emp_first_name")]
     [StringLength(100)]
-    public string ? EmpFirstName { get; set; }
+    public string? EmpFirstName { get; set; }
 
     [Column("emp_mid_name")]
     [StringLength(100)]
-    public string ? EmpMidName { get; set; }
+    public string? EmpMidName { get; set; }
 
     [Column("emp_last_name")]
     [StringLength(100)]
-    public string ? EmpLastName { get; set; }
+    public string? EmpLastName { get; set; }
 
     [Column("date_of_joining")]
     public DateOnly? DateOfJoining { get; set; }
@@ -60,7 +60,29 @@ public partial class EmpPfBasicDetail
 
     [Column("emp_id")]
     [StringLength(50)]
-    public string ? EmpId { get; set; }
+    public string? EmpId { get; set; }
+
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [Column("active_flag")]
+    [MaxLength(1)]
+    public char? ActiveFlag { get; set; }
 
     [InverseProperty("IntEmployee")]
     public virtual ICollection<EmpArrearDtl> EmpArrearDtls { get; set; } = new List<EmpArrearDtl>();

@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ngipf_frontend.DAL.Entities;
 
-[Keyless]
 [Table("mm_gen_user", Schema = "ifmsadmin")]
 public partial class MmGenUser
 {
@@ -77,9 +76,6 @@ public partial class MmGenUser
     [StringLength(38)]
     public string? UserIdOld { get; set; }
 
-    [Column("user_id")]
-    public int? UserId { get; set; }
-
     [Column("establishment_id_old")]
     [StringLength(38)]
     public string? EstablishmentIdOld { get; set; }
@@ -100,4 +96,11 @@ public partial class MmGenUser
 
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
+
+    [Key]
+    [Column("user_id")]
+    public int UserId { get; set; }
+
+    [InverseProperty("IntUser")]
+    public virtual ICollection<WorkflowUserMapping> WorkflowUserMappings { get; set; } = new List<WorkflowUserMapping>();
 }

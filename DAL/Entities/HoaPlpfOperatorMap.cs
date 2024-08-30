@@ -17,23 +17,6 @@ public partial class HoaPlpfOperatorMap
     [StringLength(1)]
     public string ActiveFlag { get; set; } = null!;
 
-    [Column("created_time_stamp", TypeName = "timestamp(6) without time zone")]
-    public DateTime CreatedTimeStamp { get; set; }
-
-    [Column("created_user_id")]
-    [StringLength(6)]
-    public string CreatedUserId { get; set; } = null!;
-
-    [Column("modified_time_stamp", TypeName = "timestamp(6) without time zone")]
-    public DateTime? ModifiedTimeStamp { get; set; }
-
-    [Column("modified_user_id")]
-    [StringLength(6)]
-    public string? ModifiedUserId { get; set; }
-
-    [Column("dml_status_flag")]
-    public short DmlStatusFlag { get; set; }
-
     [Column("role_id")]
     public int? RoleId { get; set; }
 
@@ -41,18 +24,30 @@ public partial class HoaPlpfOperatorMap
     [StringLength(1)]
     public string LocalGlobalFlag { get; set; } = null!;
 
-    [Column("hoa_id")]
-    public int HoaId { get; set; }
+    [Column("int_hoa_id")]
+    public int IntHoaId { get; set; }
 
     [Column("dept_hoad_mapping_id")]
     public short? DeptHoadMappingId { get; set; }
 
-    [ForeignKey("DeptHoadMappingId")]
-    public virtual DeptHoaMapping? DeptHoadMapping { get; set; }
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
 
-    [ForeignKey("HoaId")]
-    public virtual MmGenHoa Hoa { get; set; } = null!;
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
 
-    [ForeignKey("IntOperatorId")]
-    public virtual TMmGenPlOperator IntOperator { get; set; } = null!;
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [ForeignKey("IntHoaId")]
+    public virtual NgipfHoaList IntHoa { get; set; } = null!;
 }

@@ -28,6 +28,40 @@ public partial class EmpOpeningBalanceTemp
     [Column("op_type")]
     public int? OpType { get; set; }
 
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
+
+    [Column("active_flag")]
+    [MaxLength(1)]
+    public char? ActiveFlag { get; set; }
+
+    [Column("int_operator_id")]
+    public int? IntOperatorId { get; set; }
+
+    [ForeignKey("FinancialYear")]
+    public virtual FinancialYearMst? FinancialYearNavigation { get; set; }
+
     [ForeignKey("IntEmployeeId")]
     public virtual EmpPfBasicDetail? IntEmployee { get; set; }
+
+    [ForeignKey("IntOperatorId")]
+    public virtual TMmGenPlOperator? IntOperator { get; set; }
+
+    [ForeignKey("OpType")]
+    public virtual OpeningBalanceTypeMst? OpTypeNavigation { get; set; }
 }

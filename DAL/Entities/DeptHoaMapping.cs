@@ -28,24 +28,12 @@ public partial class DeptHoaMapping
     [StringLength(1)]
     public string? ActiveFlag { get; set; }
 
-    [Column("user_id")]
-    public int? UserId { get; set; }
-
-    [Column("modified_user_id")]
-    public int? ModifiedUserId { get; set; }
-
-    [Column("created_timestamp", TypeName = "timestamp(0) without time zone")]
-    public DateTime? CreatedTimestamp { get; set; }
-
-    [Column("modified_timestamp", TypeName = "timestamp(0) without time zone")]
-    public DateTime? ModifiedTimestamp { get; set; }
-
     [Column("int_scheme_id")]
     public int? IntSchemeId { get; set; }
 
     [Key]
-    [Column("int_dept_hoa_id")]
-    public short IntDeptHoaId { get; set; }
+    [Column("int_hoa_id")]
+    public short IntHoaId { get; set; }
 
     [Column("major_head")]
     [StringLength(4)]
@@ -62,6 +50,24 @@ public partial class DeptHoaMapping
     [Column("scheme_head")]
     [StringLength(3)]
     public string? SchemeHead { get; set; }
+
+    [Column("created_by")]
+    public int? CreatedBy { get; set; }
+
+    [Column("last_updated_by")]
+    public int? LastUpdatedBy { get; set; }
+
+    [Column("deleted_by")]
+    public int? DeletedBy { get; set; }
+
+    [Column("created_at", TypeName = "timestamp without time zone")]
+    public DateTime? CreatedAt { get; set; }
+
+    [Column("last_updated_at", TypeName = "timestamp without time zone")]
+    public DateTime? LastUpdatedAt { get; set; }
+
+    [Column("deleted_at", TypeName = "timestamp without time zone")]
+    public DateTime? DeletedAt { get; set; }
 
     public virtual MmGenDepartment? DeptCodeNavigation { get; set; }
 

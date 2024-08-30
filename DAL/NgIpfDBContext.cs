@@ -16,6 +16,22 @@ public partial class NgIpfDBContext : DbContext
     {
     }
 
+    public virtual DbSet<AdvanceAmountEligibilityMst> AdvanceAmountEligibilityMsts { get; set; }
+
+    public virtual DbSet<AdvancePurposeAdvanceMapping> AdvancePurposeAdvanceMappings { get; set; }
+
+    public virtual DbSet<AdvancePurposeMst> AdvancePurposeMsts { get; set; }
+
+    public virtual DbSet<AdvanceRecoveryDurationEligibilityMst> AdvanceRecoveryDurationEligibilityMsts { get; set; }
+
+    public virtual DbSet<AdvanceServiceDurationEligibilityMst> AdvanceServiceDurationEligibilityMsts { get; set; }
+
+    public virtual DbSet<AdvanceTypeMst> AdvanceTypeMsts { get; set; }
+
+    public virtual DbSet<BillSourceMst> BillSourceMsts { get; set; }
+
+    public virtual DbSet<DelegatedDppgRoleAssignmentMst> DelegatedDppgRoleAssignmentMsts { get; set; }
+
     public virtual DbSet<DeptHoaMapping> DeptHoaMappings { get; set; }
 
     public virtual DbSet<EmpArrearDtl> EmpArrearDtls { get; set; }
@@ -33,6 +49,10 @@ public partial class NgIpfDBContext : DbContext
     public virtual DbSet<EmpSubscription> EmpSubscriptions { get; set; }
 
     public virtual DbSet<EmpWithdrawal> EmpWithdrawals { get; set; }
+
+    public virtual DbSet<FinancialYearMst> FinancialYearMsts { get; set; }
+
+    public virtual DbSet<GoDetailsMst> GoDetailsMsts { get; set; }
 
     public virtual DbSet<HoaPlpfOperatorMap> HoaPlpfOperatorMaps { get; set; }
 
@@ -326,17 +346,25 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<HrTmSrvBookRequestInit> HrTmSrvBookRequestInits { get; set; }
 
+    public virtual DbSet<InTransferMst> InTransferMsts { get; set; }
+
+    public virtual DbSet<InterestDateExceptionMst> InterestDateExceptionMsts { get; set; }
+
+    public virtual DbSet<InterestDateMst> InterestDateMsts { get; set; }
+
+    public virtual DbSet<InterestGenerationMst> InterestGenerationMsts { get; set; }
+
+    public virtual DbSet<InterestRateExceptionMst> InterestRateExceptionMsts { get; set; }
+
+    public virtual DbSet<InterestRateMst> InterestRateMsts { get; set; }
+
     public virtual DbSet<LfPlInterestCreditedBillDetail> LfPlInterestCreditedBillDetails { get; set; }
 
-    public virtual DbSet<LfPlOpBalancePermissionStatusMaster> LfPlOpBalancePermissionStatusMasters { get; set; }
+    public virtual DbSet<LfPlOpBalancePermissionStatusMst> LfPlOpBalancePermissionStatusMsts { get; set; }
 
     public virtual DbSet<LfPlOpInterestCreditedStatus> LfPlOpInterestCreditedStatuses { get; set; }
 
-    public virtual DbSet<LfPlOpInterestDateException> LfPlOpInterestDateExceptions { get; set; }
-
     public virtual DbSet<LfPlOpInterestGenerationList> LfPlOpInterestGenerationLists { get; set; }
-
-    public virtual DbSet<LfPlOpInterestRateException> LfPlOpInterestRateExceptions { get; set; }
 
     public virtual DbSet<LfPlOpOpeningBalancePermissionStatus> LfPlOpOpeningBalancePermissionStatuses { get; set; }
 
@@ -394,8 +422,6 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<MmGenBankName> MmGenBankNames { get; set; }
 
-    public virtual DbSet<MmGenBillSource> MmGenBillSources { get; set; }
-
     public virtual DbSet<MmGenBillType> MmGenBillTypes { get; set; }
 
     public virtual DbSet<MmGenChallanMajorhead> MmGenChallanMajorheads { get; set; }
@@ -410,21 +436,11 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<MmGenDistrict> MmGenDistricts { get; set; }
 
-    public virtual DbSet<MmGenFinancialYear> MmGenFinancialYears { get; set; }
-
     public virtual DbSet<MmGenHoa> MmGenHoas { get; set; }
 
     public virtual DbSet<MmGenHrmsUserType> MmGenHrmsUserTypes { get; set; }
 
-    public virtual DbSet<MmGenInTransferMaster> MmGenInTransferMasters { get; set; }
-
     public virtual DbSet<MmGenInstitution> MmGenInstitutions { get; set; }
-
-    public virtual DbSet<MmGenInterestDateMaster> MmGenInterestDateMasters { get; set; }
-
-    public virtual DbSet<MmGenInterestGenerationMaster> MmGenInterestGenerationMasters { get; set; }
-
-    public virtual DbSet<MmGenInterestRateMaster> MmGenInterestRateMasters { get; set; }
 
     public virtual DbSet<MmGenLevelCode> MmGenLevelCodes { get; set; }
 
@@ -480,23 +496,37 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<MmPenSubCategory> MmPenSubCategories { get; set; }
 
-    public virtual DbSet<OpeningBalanceType> OpeningBalanceTypes { get; set; }
+    public virtual DbSet<NgipfHoaList> NgipfHoaLists { get; set; }
+
+    public virtual DbSet<OpeningBalanceTypeMst> OpeningBalanceTypeMsts { get; set; }
 
     public virtual DbSet<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; }
 
-    public virtual DbSet<RecomandingAuthorityNatureCountMaster> RecomandingAuthorityNatureCountMasters { get; set; }
+    public virtual DbSet<RecomandingAuthorityCountMst> RecomandingAuthorityCountMsts { get; set; }
 
-    public virtual DbSet<RecomandingAuthorityNatureMaster> RecomandingAuthorityNatureMasters { get; set; }
+    public virtual DbSet<RecomandingNatureMst> RecomandingNatureMsts { get; set; }
 
-    public virtual DbSet<SancctionAuthorityNatureCountMaster> SancctionAuthorityNatureCountMasters { get; set; }
+    public virtual DbSet<SanctionAdminCountMst> SanctionAdminCountMsts { get; set; }
 
-    public virtual DbSet<SancctionAuthorityNatureMaster> SancctionAuthorityNatureMasters { get; set; }
+    public virtual DbSet<SanctionAdminNatureMst> SanctionAdminNatureMsts { get; set; }
 
     public virtual DbSet<StakeHolderMapping> StakeHolderMappings { get; set; }
+
+    public virtual DbSet<StakeHolderMappingException> StakeHolderMappingExceptions { get; set; }
 
     public virtual DbSet<StatusMaster> StatusMasters { get; set; }
 
     public virtual DbSet<TMmGenPlOperator> TMmGenPlOperators { get; set; }
+
+    public virtual DbSet<WorkflowFunctinalityTypeMst> WorkflowFunctinalityTypeMsts { get; set; }
+
+    public virtual DbSet<WorkflowMasterCode> WorkflowMasterCodes { get; set; }
+
+    public virtual DbSet<WorkflowOfficeTypeFuncMapping> WorkflowOfficeTypeFuncMappings { get; set; }
+
+    public virtual DbSet<WorkflowOfficeTypeMst> WorkflowOfficeTypeMsts { get; set; }
+
+    public virtual DbSet<WorkflowUserMapping> WorkflowUserMappings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -504,16 +534,99 @@ public partial class NgIpfDBContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AdvanceAmountEligibilityMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("advance_amount_eligibility_mst_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntAdvanceTypeNavigation).WithMany(p => p.AdvanceAmountEligibilityMsts).HasConstraintName("fk_advance_amount_eligibility_mst_advance_type");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.AdvanceAmountEligibilityMsts).HasConstraintName("fk_advance_amount_eligibility_mst_go");
+
+            entity.HasOne(d => d.IntOperator).WithMany(p => p.AdvanceAmountEligibilityMsts).HasConstraintName("fk_advance_amount_eligibility_mst_op_code");
+        });
+
+        modelBuilder.Entity<AdvancePurposeAdvanceMapping>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("advance_purpose_advance_mapping_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntAdvanceTypeNavigation).WithMany(p => p.AdvancePurposeAdvanceMappings).HasConstraintName("fk_advance_purpose_advance_mapping_type");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.AdvancePurposeAdvanceMappings).HasConstraintName("fk_advance_purpose_advance_mapping_go");
+
+            entity.HasOne(d => d.IntOperator).WithMany(p => p.AdvancePurposeAdvanceMappings).HasConstraintName("fk_advance_purpose_advance_mapping_op");
+
+            entity.HasOne(d => d.IntPurpose).WithMany(p => p.AdvancePurposeAdvanceMappings).HasConstraintName("fk_advance_purpose_advance_mapping_puspose");
+        });
+
+        modelBuilder.Entity<AdvancePurposeMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("advance_purpose_mst_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<AdvanceRecoveryDurationEligibilityMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("advance_recovery_duration_eligibility_mst_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntAdvanceTypeNavigation).WithMany(p => p.AdvanceRecoveryDurationEligibilityMsts).HasConstraintName("fk_advance_recovery_duration_eligibility_mst_type");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.AdvanceRecoveryDurationEligibilityMsts).HasConstraintName("fk_advance_purpose_advance_mapping_go");
+
+            entity.HasOne(d => d.IntOperator).WithMany(p => p.AdvanceRecoveryDurationEligibilityMsts).HasConstraintName("fk_advance_recovery_duration_eligibility_mst_op");
+        });
+
+        modelBuilder.Entity<AdvanceServiceDurationEligibilityMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_advance_service_duration_elg_mst_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_advance_service_duration_elg_mst_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntAdvanceTypeNavigation).WithMany(p => p.AdvanceServiceDurationEligibilityMsts).HasConstraintName("fk_advance_service_duration_eligibility_mst_type");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.AdvanceServiceDurationEligibilityMsts).HasConstraintName("fk_advance_service_duration_eligibility_mst_go");
+
+            entity.HasOne(d => d.IntOperator).WithMany(p => p.AdvanceServiceDurationEligibilityMsts).HasConstraintName("fk_advance_service_duration_eligibility_mst_mst_op");
+        });
+
+        modelBuilder.Entity<AdvanceTypeMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_advance_type_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_advance_type_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<BillSourceMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_bill_source_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_bill_source_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<DelegatedDppgRoleAssignmentMst>(entity =>
+        {
+            entity.HasKey(e => e.IntDelDppgId).HasName("mm_gen_delegated_dppg_role_assignment_pkey");
+
+            entity.Property(e => e.IntDelDppgId).HasDefaultValueSql("nextval('ngipf_master.mm_gen_delegated_dppg_role_assignment_int_del_dppg_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+            entity.Property(e => e.IsDelegatedAdmin).HasDefaultValueSql("false");
+        });
+
         modelBuilder.Entity<DeptHoaMapping>(entity =>
         {
-            entity.HasKey(e => e.IntDeptHoaId).HasName("dept_hoa_mapping_pkey");
+            entity.HasKey(e => e.IntHoaId).HasName("dept_hoa_mapping_pkey");
 
-            entity.Property(e => e.IntDeptHoaId).ValueGeneratedNever();
+            entity.Property(e => e.IntHoaId).ValueGeneratedNever();
             entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
-            entity.Property(e => e.CreatedTimestamp).HasDefaultValueSql("CURRENT_TIMESTAMP(0)");
-            entity.Property(e => e.ModifiedTimestamp).HasDefaultValueSql("CURRENT_TIMESTAMP(0)");
-            entity.Property(e => e.ModifiedUserId).HasDefaultValueSql("0");
-            entity.Property(e => e.UserId).HasDefaultValueSql("0");
 
             entity.HasOne(d => d.DeptCodeNavigation).WithMany(p => p.DeptHoaMappings)
                 .HasPrincipalKey(p => p.DepartmentCode)
@@ -527,9 +640,7 @@ public partial class NgIpfDBContext : DbContext
         {
             entity.HasKey(e => e.IntArrearDtlsId).HasName("pk_emp_arrear_dtls");
 
-            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'N'::character varying");
-            entity.Property(e => e.CreatedTimestamp).HasDefaultValueSql("CURRENT_TIMESTAMP");
-            entity.Property(e => e.ModifiedTimestamp).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
 
             entity.HasOne(d => d.IntEmployee).WithMany(p => p.EmpArrearDtls).HasConstraintName("fk_emp_arrear_dtls_ep");
         });
@@ -538,6 +649,7 @@ public partial class NgIpfDBContext : DbContext
         {
             entity.HasKey(e => new { e.IntEmployeeId, e.FinancialYear }).HasName("emp_opening_balance_accpeted_pkey");
 
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf.emp_opening_balance_id_seq'::regclass)");
 
             entity.HasOne(d => d.FinancialYearNavigation).WithMany(p => p.EmpOpeningBalanceAccpeteds)
@@ -555,14 +667,22 @@ public partial class NgIpfDBContext : DbContext
 
         modelBuilder.Entity<EmpOpeningBalanceRemark>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
         });
 
         modelBuilder.Entity<EmpOpeningBalanceTemp>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf.emp_opening_balance_temmp_id_seq'::regclass)");
 
+            entity.HasOne(d => d.FinancialYearNavigation).WithMany().HasConstraintName("fk_emp_opening_balance_temp_finyeaar");
+
             entity.HasOne(d => d.IntEmployee).WithMany().HasConstraintName("fk_emp_opening_balance_temp_ep");
+
+            entity.HasOne(d => d.IntOperator).WithMany().HasConstraintName("fk_emp_opening_balance_temp_op_code");
+
+            entity.HasOne(d => d.OpTypeNavigation).WithMany().HasConstraintName("fk_emp_opening_balance_temp_op_type");
         });
 
         modelBuilder.Entity<EmpPfBasicDetail>(entity =>
@@ -570,6 +690,7 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.IntEmployeeId).HasName("emp_pf_basic_details_pkey");
 
             entity.Property(e => e.IntEmployeeId).ValueGeneratedNever();
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.EmpPfBasicDetailsId).ValueGeneratedOnAdd();
 
             entity.HasOne(d => d.IntDdo).WithMany(p => p.EmpPfBasicDetails).HasConstraintName("fk_emp_pf_basic_details_ddo");
@@ -596,11 +717,12 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.IntEmployeeId).HasName("emp_lfpl_details_pkey");
 
             entity.Property(e => e.IntEmployeeId).ValueGeneratedNever();
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.EmpLfplDetailsId).HasDefaultValueSql("nextval('ngipf.emp_lfpl_details_emp_lfpl_details_id_seq'::regclass)");
 
             entity.HasOne(d => d.IntEmployee).WithOne(p => p.EmpPfOfficeDetail)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_emp_pf_office_details_emp");
+                .HasConstraintName("fk_emp_opening_balance_temp_ep");
 
             entity.HasOne(d => d.IntOperatorHeadOfOfficeNavigation).WithMany(p => p.EmpPfOfficeDetailIntOperatorHeadOfOfficeNavigations).HasConstraintName("fk_emp_pf_office_details_op_office");
 
@@ -613,28 +735,41 @@ public partial class NgIpfDBContext : DbContext
 
         modelBuilder.Entity<EmpSubscription>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
             entity.HasOne(d => d.IntEmployee).WithMany().HasConstraintName("fk_emp_subscription_ep");
         });
 
         modelBuilder.Entity<EmpWithdrawal>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
             entity.HasOne(d => d.IntEmployee).WithMany().HasConstraintName("fk_emp_withdrawal_ep");
+        });
+
+        modelBuilder.Entity<FinancialYearMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_financial_year_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_financial_year_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<GoDetailsMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("advance_go_details_mst_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.advance_go_details_mst_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
         modelBuilder.Entity<HoaPlpfOperatorMap>(entity =>
         {
-            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'y'::character varying");
-            entity.Property(e => e.CreatedTimeStamp).HasDefaultValueSql("CURRENT_TIMESTAMP");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
 
-            entity.HasOne(d => d.DeptHoadMapping).WithMany().HasConstraintName("fk_hoa_plpf_operator_map_dept_hoa_mappin");
-
-            entity.HasOne(d => d.Hoa).WithMany()
+            entity.HasOne(d => d.IntHoa).WithMany()
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_hoa_plpf_operator_map_hoa_id");
-
-            entity.HasOne(d => d.IntOperator).WithMany()
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_hoa_plpf_operator_map_op_code");
+                .HasConstraintName("fk_hoa_plpf_operator_map_hoa");
         });
 
         modelBuilder.Entity<HrDetailsEmpStaging>(entity =>
@@ -1099,22 +1234,81 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.SrvBookRequestInit).HasName("hr_tm_srv_book_request_init_pkey");
         });
 
+        modelBuilder.Entity<InTransferMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_in_transfer_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_in_transfer_master_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<InterestDateExceptionMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("interest_date_exception_mst_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.InterestDateExceptionMsts).HasConstraintName("fk_interest_date_exception_mst_go");
+
+            entity.HasOne(d => d.IntHoa).WithMany(p => p.InterestDateExceptionMsts).HasConstraintName("fk_interest_date_exception_mst_hoa");
+        });
+
+        modelBuilder.Entity<InterestDateMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("interest_date_mst_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<InterestGenerationMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_gen_interest_generation_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_gen_interest_generation_master_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+        });
+
+        modelBuilder.Entity<InterestRateExceptionMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("interest_rate_exception_mst_pkey");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.InterestRateExceptionMsts).HasConstraintName("fk_interest_rate_exception_mst_go");
+
+            entity.HasOne(d => d.IntHoa).WithMany(p => p.InterestRateExceptionMsts).HasConstraintName("fk_interest_rate_exception_mst_hoa");
+        });
+
+        modelBuilder.Entity<InterestRateMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("interest_rate_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.interest_rate_master_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntGo).WithMany(p => p.InterestRateMsts).HasConstraintName("fk_interest_rate_mst_go");
+        });
+
         modelBuilder.Entity<LfPlInterestCreditedBillDetail>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("lf_pl_interest_credited_bill_details_pkey");
 
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
             entity.HasOne(d => d.IntBillSourceNavigation).WithMany(p => p.LfPlInterestCreditedBillDetails).HasConstraintName("fk_lf_pl_interest_credited_bill_details_bill_source");
         });
 
-        modelBuilder.Entity<LfPlOpBalancePermissionStatusMaster>(entity =>
+        modelBuilder.Entity<LfPlOpBalancePermissionStatusMst>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("lf_pl_op_balance_permission_status_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.lf_pl_op_balance_permission_status_master_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
         modelBuilder.Entity<LfPlOpInterestCreditedStatus>(entity =>
         {
             entity.HasKey(e => new { e.IntOperatorId, e.FinancialYearCodeUpto }).HasName("lf_pl_op_interest_credited_status_pkey");
 
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf.lf_pl_op_reconciliation_status_id_seq'::regclass)");
 
             entity.HasOne(d => d.FinancialYearCodeUptoNavigation).WithMany(p => p.LfPlOpInterestCreditedStatuses)
@@ -1130,17 +1324,9 @@ public partial class NgIpfDBContext : DbContext
                 .HasConstraintName("fk_lf_pl_op_interest_credited_status_op_code");
         });
 
-        modelBuilder.Entity<LfPlOpInterestDateException>(entity =>
-        {
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
-            entity.HasOne(d => d.IntOperator).WithMany()
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_lf_pl_op_interest_date_exception_op_code");
-        });
-
         modelBuilder.Entity<LfPlOpInterestGenerationList>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf.lf_pl_op_interest_generation_master_id_seq'::regclass)");
 
             entity.HasOne(d => d.IntGenerationTypeNavigation).WithMany().HasConstraintName("fk_lf_pl_op_interest_generation_list_generation_type");
@@ -1150,20 +1336,12 @@ public partial class NgIpfDBContext : DbContext
                 .HasConstraintName("fk_lf_pl_op_interest_generation_master_op_code");
         });
 
-        modelBuilder.Entity<LfPlOpInterestRateException>(entity =>
-        {
-            entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
-            entity.HasOne(d => d.IntOperator).WithMany()
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_lf_pl_op_interest_rate_exception_op_code");
-        });
-
         modelBuilder.Entity<LfPlOpOpeningBalancePermissionStatus>(entity =>
         {
             entity.HasKey(e => e.IntOperatorId).HasName("lf_pl_op_opening_balance_permission_status_pkey");
 
             entity.Property(e => e.IntOperatorId).ValueGeneratedNever();
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf.lf_pl_op_permission_status_id_seq'::regclass)");
 
             entity.HasOne(d => d.IntOperator).WithOne(p => p.LfPlOpOpeningBalancePermissionStatus)
@@ -1178,6 +1356,7 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.IntOperatorId).HasName("lf_pl_op_reconciliation_status_pkey");
 
             entity.Property(e => e.IntOperatorId).ValueGeneratedNever();
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
             entity.HasOne(d => d.IntOperator).WithOne(p => p.LfPlOpReconciliationStatus)
@@ -1276,11 +1455,6 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.IfscCode).HasName("mm_gen_bank_branch_ifsc_pkey");
         });
 
-        modelBuilder.Entity<MmGenBillSource>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_bill_source_pkey");
-        });
-
         modelBuilder.Entity<MmGenDdo>(entity =>
         {
             entity.HasKey(e => e.IntDdoId).HasName("mm_gen_ddo_pkey");
@@ -1307,34 +1481,9 @@ public partial class NgIpfDBContext : DbContext
             entity.Property(e => e.IntDistrictId).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<MmGenFinancialYear>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_financial_year_pkey");
-        });
-
         modelBuilder.Entity<MmGenHoa>(entity =>
         {
             entity.HasKey(e => e.HoaId).HasName("mm_gen_hoa_pkey");
-        });
-
-        modelBuilder.Entity<MmGenInTransferMaster>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_in_transfer_master_pkey");
-        });
-
-        modelBuilder.Entity<MmGenInterestDateMaster>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_interest_date_master_pkey");
-        });
-
-        modelBuilder.Entity<MmGenInterestGenerationMaster>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_interest_generation_master_pkey");
-        });
-
-        modelBuilder.Entity<MmGenInterestRateMaster>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("mm_gen_interest_rate_master_pkey");
         });
 
         modelBuilder.Entity<MmGenMajorhead>(entity =>
@@ -1346,9 +1495,16 @@ public partial class NgIpfDBContext : DbContext
         {
             entity.HasKey(e => e.IntGenNgipfOfficeId).HasName("mm_gen_ngipf_office_pkey");
 
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
+
             entity.HasOne(d => d.IntHeadOfOffice).WithMany(p => p.MmGenNgipfOffices).HasConstraintName("fk_mm_gen_ngipf_office_office_id");
 
             entity.HasOne(d => d.IntPlOperator).WithMany(p => p.MmGenNgipfOffices).HasConstraintName("fk_mm_gen_ngipf_office_lfpl");
+        });
+
+        modelBuilder.Entity<MmGenRole>(entity =>
+        {
+            entity.HasKey(e => e.RoleId).HasName("mm_gen_role_pkey");
         });
 
         modelBuilder.Entity<MmGenState>(entity =>
@@ -1365,54 +1521,113 @@ public partial class NgIpfDBContext : DbContext
             entity.Property(e => e.IntTreasuryId).ValueGeneratedNever();
         });
 
-        modelBuilder.Entity<OpeningBalanceType>(entity =>
+        modelBuilder.Entity<MmGenUser>(entity =>
+        {
+            entity.HasKey(e => e.UserId).HasName("mm_gen_user_pkey");
+
+            entity.Property(e => e.UserId).HasDefaultValueSql("nextval('ifmsadmin.mm_gen_user_int_user_id_seq'::regclass)");
+        });
+
+        modelBuilder.Entity<NgipfHoaList>(entity =>
+        {
+            entity.HasKey(e => e.IntHoaId).HasName("ngipf_hoa_list_pkey");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
+
+            entity.HasOne(d => d.IntScheme).WithMany(p => p.NgipfHoaLists).HasConstraintName("fk_ngipf_hoa_list_scheme");
+        });
+
+        modelBuilder.Entity<OpeningBalanceTypeMst>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("opening_balance_type_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.opening_balance_type_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
         modelBuilder.Entity<PlPfDdoHoaMap>(entity =>
         {
             entity.HasKey(e => e.IntPlPfDdoMapOld).HasName("pk_hr_mm_gen_pl_pf_ddo_map");
 
-            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'y'::character varying");
-            entity.Property(e => e.CreatedTimeStamp).HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-            entity.HasOne(d => d.Hoa).WithMany(p => p.PlPfDdoHoaMaps)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_pl_pf_ddo_hoa_map_hoa");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
 
             entity.HasOne(d => d.IntDdo).WithMany(p => p.PlPfDdoHoaMaps)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_pl_pf_ddo_hoa_map_ddo");
 
+            entity.HasOne(d => d.IntHoa).WithMany(p => p.PlPfDdoHoaMaps)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_pl_pf_ddo_hoa_map_hoa");
+
             entity.HasOne(d => d.IntOperator).WithMany(p => p.PlPfDdoHoaMaps)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("fk_pl_pf_ddo_hoa_map_op_code");
+                .HasConstraintName("fk_pl_pf_ddo_hoa_map_op");
         });
 
-        modelBuilder.Entity<RecomandingAuthorityNatureCountMaster>(entity =>
+        modelBuilder.Entity<RecomandingAuthorityCountMst>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("recomanding_authority_nature_count_master_pkey");
+            entity.HasKey(e => e.Id).HasName("recomanding_authority_nature_count_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.recomanding_authority_nature_count_master_code_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
-        modelBuilder.Entity<RecomandingAuthorityNatureMaster>(entity =>
+        modelBuilder.Entity<RecomandingNatureMst>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("recomanding_authority_nature_master_pkey");
+            entity.HasKey(e => e.Id).HasName("recomanding_authority_nature_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.recomanding_authority_nature_master_code_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
-        modelBuilder.Entity<SancctionAuthorityNatureCountMaster>(entity =>
+        modelBuilder.Entity<SanctionAdminCountMst>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("sancction_authority_nature_count_master_pkey");
+            entity.HasKey(e => e.Id).HasName("sancction_authority_nature_count_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.sancction_authority_nature_count_master_code_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
-        modelBuilder.Entity<SancctionAuthorityNatureMaster>(entity =>
+        modelBuilder.Entity<SanctionAdminNatureMst>(entity =>
         {
-            entity.HasKey(e => e.Code).HasName("sancction_authority_nature_master_pkey");
+            entity.HasKey(e => e.Id).HasName("sancction_authority_nature_master_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.sancction_authority_nature_master_code_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
         });
 
         modelBuilder.Entity<StakeHolderMapping>(entity =>
         {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.IntStakeHolderMapping).ValueGeneratedOnAdd();
+
+            entity.HasOne(d => d.IntHoa).WithMany().HasConstraintName("fk_stake_holder_mapping_hoa");
+
+            entity.HasOne(d => d.RecoAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_ranm");
+
+            entity.HasOne(d => d.RecomAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_rac");
+
+            entity.HasOne(d => d.SancAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_sac");
+
+            entity.HasOne(d => d.SanctionAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_sanm");
+        });
+
+        modelBuilder.Entity<StakeHolderMappingException>(entity =>
+        {
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+            entity.Property(e => e.IntStakeHolderMappingException).HasDefaultValueSql("nextval('ngipf.stake_holder_mapping_exceptio_int_stake_holder_mapping_exce_seq'::regclass)");
+
+            entity.HasOne(d => d.IntHoa).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_hoa");
+
+            entity.HasOne(d => d.IntOperator).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_op");
+
+            entity.HasOne(d => d.RecoAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_ranm");
+
+            entity.HasOne(d => d.RecomAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_rac");
+
+            entity.HasOne(d => d.SancAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_sac");
+
+            entity.HasOne(d => d.SanctionAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_exception_sanm");
         });
 
         modelBuilder.Entity<StatusMaster>(entity =>
@@ -1423,6 +1638,64 @@ public partial class NgIpfDBContext : DbContext
         modelBuilder.Entity<TMmGenPlOperator>(entity =>
         {
             entity.HasKey(e => e.IntPlOperatorId).HasName("t_mm_gen_pl_operator_pkey");
+        });
+
+        modelBuilder.Entity<WorkflowFunctinalityTypeMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_workflow_functinality_type_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_functinality_type_int_func_type_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
+        });
+
+        modelBuilder.Entity<WorkflowMasterCode>(entity =>
+        {
+            entity.HasKey(e => e.IntMmWorkflowStatusCode).HasName("mm_workflow_master_code_pkey");
+
+            entity.Property(e => e.IntMmWorkflowStatusCode).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_master_code_int_mm_workflow_status_code_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntFunc).WithMany(p => p.WorkflowMasterCodeIntFuncs).HasConstraintName("fk_workflow_master_code_func");
+
+            entity.HasOne(d => d.IntHoa).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_hoa");
+
+            entity.HasOne(d => d.IntOfficeType).WithMany(p => p.WorkflowMasterCodeIntOfficeTypes).HasConstraintName("fk_workflow_master_code_off_type");
+
+            entity.HasOne(d => d.IntOperator).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_op");
+
+            entity.HasOne(d => d.IntTreasuryCodeNavigation).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_off_tresury");
+        });
+
+        modelBuilder.Entity<WorkflowOfficeTypeFuncMapping>(entity =>
+        {
+            entity.HasKey(e => e.IntWorkflowOffTypeFuncId).HasName("mm_workflow_office_type_func_mapping_pkey");
+
+            entity.Property(e => e.IntWorkflowOffTypeFuncId).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_office_type_func__int_workflow_off_type_func_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntFunc).WithMany(p => p.WorkflowOfficeTypeFuncMappingIntFuncs).HasConstraintName("fk_workflow_office_type_func_mapping_func");
+
+            entity.HasOne(d => d.IntOfficeType).WithMany(p => p.WorkflowOfficeTypeFuncMappingIntOfficeTypes).HasConstraintName("fk_workflow_office_type_func_mapping_type");
+        });
+
+        modelBuilder.Entity<WorkflowOfficeTypeMst>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("mm_workflow_office_type_pkey");
+
+            entity.Property(e => e.Id).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_office_type_int_office_type_id_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
+        });
+
+        modelBuilder.Entity<WorkflowUserMapping>(entity =>
+        {
+            entity.HasKey(e => e.IntMmWorkflowUserMapping).HasName("mm_workflow_user_mapping_pkey");
+
+            entity.Property(e => e.IntMmWorkflowUserMapping).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_user_mapping_int_mm_workflow_user_mapping_seq'::regclass)");
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
+
+            entity.HasOne(d => d.IntRole).WithMany(p => p.WorkflowUserMappings).HasConstraintName("fk_workflow_user_mapping_role");
+
+            entity.HasOne(d => d.IntUser).WithMany(p => p.WorkflowUserMappings).HasConstraintName("fk_workflow_user_mapping_user");
         });
 
         OnModelCreatingPartial(modelBuilder);

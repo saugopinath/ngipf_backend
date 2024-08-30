@@ -18,8 +18,8 @@ namespace ngipf_frontend.BAL
         {
             return (List<DropdownStringCodeDTO>)await _HoaRepository.GetSelectedColumnAsync(entity => new DropdownStringCodeDTO
             {
-                Name = entity.Hoa,
-                Code = entity.IntDeptHoaId.ToString()
+                Name = entity.Hoa + "(" + entity.IntScheme.Description+")",
+                Code = entity.IntHoaId.ToString()
             });
             
         }
