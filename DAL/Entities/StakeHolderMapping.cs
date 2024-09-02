@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ngipf_frontend.DAL.Entities;
 
-[Keyless]
 [Table("stake_holder_mapping", Schema = "ngipf")]
 public partial class StakeHolderMapping
 {
@@ -35,8 +34,9 @@ public partial class StakeHolderMapping
     [Column("reco_auth_required")]
     public bool? RecoAuthRequired { get; set; }
 
+    [Key]
     [Column("int_hoa_id")]
-    public int? IntHoaId { get; set; }
+    public int IntHoaId { get; set; }
 
     [Column("created_by")]
     public int? CreatedBy { get; set; }
@@ -57,17 +57,22 @@ public partial class StakeHolderMapping
     public DateTime? DeletedAt { get; set; }
 
     [ForeignKey("IntHoaId")]
-    public virtual NgipfHoaList? IntHoa { get; set; }
+    [InverseProperty("StakeHolderMapping")]
+    public virtual NgipfHoaList IntHoa { get; set; } = null!;
 
     [ForeignKey("RecoAuthNature")]
+    [InverseProperty("StakeHolderMappings")]
     public virtual RecomandingNatureMst? RecoAuthNatureNavigation { get; set; }
 
     [ForeignKey("RecomAuthCount")]
+    [InverseProperty("StakeHolderMappings")]
     public virtual RecomandingAuthorityCountMst? RecomAuthCountNavigation { get; set; }
 
     [ForeignKey("SancAuthCount")]
+    [InverseProperty("StakeHolderMappings")]
     public virtual SanctionAdminCountMst? SancAuthCountNavigation { get; set; }
 
     [ForeignKey("SanctionAuthNature")]
+    [InverseProperty("StakeHolderMappings")]
     public virtual SanctionAdminNatureMst? SanctionAuthNatureNavigation { get; set; }
 }

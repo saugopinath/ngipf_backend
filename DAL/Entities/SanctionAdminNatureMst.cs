@@ -38,4 +38,7 @@ public partial class SanctionAdminNatureMst
 
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
+
+    [InverseProperty("SanctionAuthNatureNavigation")]
+    public virtual ICollection<StakeHolderMapping> StakeHolderMappings { get; set; } = new List<StakeHolderMapping>();
 }

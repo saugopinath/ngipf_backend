@@ -11,34 +11,34 @@ namespace ngipf_frontend.DAL
 {
     public abstract class Repository<T, Tcontext> : IRepository<T> where T : class where Tcontext : DbContext
     {
-        protected readonly Tcontext CTSDbContext = null;
+        protected readonly Tcontext NgIpfDBContext = null;
 
         public Repository(Tcontext context)
         {
-            this.CTSDbContext = context;
+            this.NgIpfDBContext = context;
         }
 
 
         public bool IsTransactionRunning()
         {
-            return this.CTSDbContext.Database.CurrentTransaction == null ? false : true;
+            return this.NgIpfDBContext.Database.CurrentTransaction == null ? false : true;
         }
         private IDbContextTransaction BeginTran()
         {
-            return this.CTSDbContext.Database.BeginTransaction();
+            return this.NgIpfDBContext.Database.BeginTransaction();
         }
 
 
 
         public IExecutionStrategy GetExecutionStrategy()
         {
-            return this.CTSDbContext.Database.CreateExecutionStrategy();
+            return this.NgIpfDBContext.Database.CreateExecutionStrategy();
         }
 
 
         public IQueryable<T> GetAllByCondition(Expression<Func<T, bool>> condition)
         {
-            IQueryable<T> result = this.CTSDbContext.Set<T>();
+            IQueryable<T> result = this.NgIpfDBContext.Set<T>();
             if (condition != null)
             {
                 result = result.Where(condition);
@@ -49,7 +49,7 @@ namespace ngipf_frontend.DAL
 
         public async Task<ICollection<T>> GetAllByConditionAsync(Expression<Func<T, bool>> condition)
         {
-            IQueryable<T> result = this.CTSDbContext.Set<T>();
+            IQueryable<T> result = this.NgIpfDBContext.Set<T>();
             if (condition != null)
             {
                 result = result.Where(condition);
@@ -60,28 +60,51 @@ namespace ngipf_frontend.DAL
 
         public IQueryable<T> GetAll()
         {
-            IQueryable<T> result = this.CTSDbContext.Set<T>();
+            IQueryable<T> result = this.NgIpfDBContext.Set<T>();
             return result;
         }
 
         public async Task<ICollection<T>> GetAllAsync()
         {
-            IQueryable<T> result = this.CTSDbContext.Set<T>();
+            IQueryable<T> result = this.NgIpfDBContext.Set<T>();
             return await result.ToListAsync();
         }
 
         public async Task<ICollection<TResult>> GetSelectedColumnAsync<TResult>(Expression<Func<T, TResult>> selectExpression)
         {
-            IQueryable<TResult> result = this.CTSDbContext.Set<T>().Select(selectExpression);
+            IQueryable<TResult> result = this.NgIpfDBContext.Set<T>().Select(selectExpression);
             return await result.ToListAsync();
         }
         public async Task<ICollection<TResult>> GetSelectedColumnByConditionAsync<TResult>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, TResult>> selectExpression)
         {
-            IQueryable<TResult> result = this.CTSDbContext.Set<T>()
+            IQueryable<TResult> result = this.NgIpfDBContext.Set<T>()
                                     .Where(filterExpression)
                                     .Select(selectExpression);
 
             return await result.ToListAsync();
+        }
+        public async Task<ICollection<TResult>> GetSelectedColumnByConditionWithSortAsync<TResult>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, TResult>> selectExpression, string orderByField = null,
+            string orderByOrder = null)
+        {
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>().Where(filterExpression);
+
+            if (!string.IsNullOrWhiteSpace(orderByField))
+            {
+                var parameter = Expression.Parameter(typeof(T), "x");
+                var property = Expression.Property(parameter, orderByField);
+                var lambda = Expression.Lambda<Func<T, object>>(Expression.Convert(property, typeof(object)), parameter);
+
+                if (orderByOrder == "ASC")
+                {
+                    query = query.OrderBy(lambda);
+                }
+                else
+                {
+                    query = query.OrderByDescending(lambda);
+                }
+            }
+            var result = await query.Select(selectExpression).ToListAsync();
+            return result;
         }
         public async Task<ICollection<TResult>> GetSelectedColumnByConditionAsync<TResult>(
             Expression<Func<T, bool>> filterExpression,
@@ -94,7 +117,7 @@ namespace ngipf_frontend.DAL
             List<FilterParameter> dynamicFilters = dynamicListQueryParameters.filterParameters;
             string orderByField = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Field : null;
             string orderByOrder = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Order : null;
-            IQueryable<T> query = this.CTSDbContext.Set<T>().Where(filterExpression);
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>().Where(filterExpression);
 
             if (dynamicFilters != null && dynamicFilters.Any())
             {
@@ -133,7 +156,7 @@ namespace ngipf_frontend.DAL
             string orderByOrder = null
         )
         {
-            IQueryable<T> query = this.CTSDbContext.Set<T>().Where(filterExpression);
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>().Where(filterExpression);
 
             if (dynamicFilters != null && dynamicFilters.Any())
             {
@@ -167,7 +190,7 @@ namespace ngipf_frontend.DAL
             Expression<Func<T, TKey>> groupByKeySelector,
             Expression<Func<T, TResult>> selectExpression)
         {
-            var data = await this.CTSDbContext.Set<T>()
+            var data = await this.NgIpfDBContext.Set<T>()
             .Where(filterExpression)
             .ToListAsync();
             var groupedResult = data
@@ -181,7 +204,7 @@ namespace ngipf_frontend.DAL
        Expression<Func<T, bool>> filterExpression,
        Expression<Func<T, TResult>> selectExpression)
         {
-            TResult result = await this.CTSDbContext.Set<T>()
+            TResult result = await this.NgIpfDBContext.Set<T>()
                                         .Where(filterExpression)
                                         .Select(selectExpression)
                                         .FirstOrDefaultAsync();
@@ -191,17 +214,17 @@ namespace ngipf_frontend.DAL
 
         public T GetSingle(Expression<Func<T, bool>> condition)
         {
-            return this.CTSDbContext.Set<T>().Where(condition).FirstOrDefault();
+            return this.NgIpfDBContext.Set<T>().Where(condition).FirstOrDefault();
         }
         public async Task<T> GetSingleAysnc(Expression<Func<T, bool>> condition)
         {
-            var retValue = await this.CTSDbContext.Set<T>().Where(condition).SingleOrDefaultAsync();
+            var retValue = await this.NgIpfDBContext.Set<T>().Where(condition).SingleOrDefaultAsync();
 
             return retValue;
         }
         public int CountWithCondition(Expression<Func<T, bool>> condition, List<FilterParameter> dynamicFilters = null)
         {
-            IQueryable<T> query = this.CTSDbContext.Set<T>();
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>();
 
             if (dynamicFilters != null && dynamicFilters.Any())
             {
@@ -216,51 +239,51 @@ namespace ngipf_frontend.DAL
         }
         public int CountWithCondition(Expression<Func<T, bool>> condition)
         {
-            IQueryable<T> query = this.CTSDbContext.Set<T>();
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>();
             return query.Count(condition);
         }
         public async Task<int> CountWithConditionAsync(Expression<Func<T, bool>> condition)
         {
-            IQueryable<T> query = this.CTSDbContext.Set<T>();
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>();
             return await query.CountAsync(condition);
         }
         public int Count()
         {
-            return this.CTSDbContext.Set<T>().Count();
+            return this.NgIpfDBContext.Set<T>().Count();
         }
 
         public async Task<object> ExecuteQuery(string sqlQuery, object parameters)
         {
-            return await this.CTSDbContext.Database.ExecuteSqlRawAsync(sqlQuery, parameters);
+            return await this.NgIpfDBContext.Database.ExecuteSqlRawAsync(sqlQuery, parameters);
         }
 
 
         public bool Add(T entity)
         {
-            this.CTSDbContext.Set<T>().Add(entity);
+            this.NgIpfDBContext.Set<T>().Add(entity);
             return true;
         }
         public void AddRange(IEnumerable<T> entities)
         {
-            this.CTSDbContext.Set<T>().AddRange(entities);
+            this.NgIpfDBContext.Set<T>().AddRange(entities);
         }
 
         public bool Update(T entity)
         {
-            this.CTSDbContext.Entry(entity).State = EntityState.Modified;
+            this.NgIpfDBContext.Entry(entity).State = EntityState.Modified;
             return true;
         }
 
         public bool Delete(T entity)
         {
-            this.CTSDbContext.Set<T>().Remove(entity);
+            this.NgIpfDBContext.Set<T>().Remove(entity);
             return true;
         }
 
 
         public void SaveChangesManaged()
         {
-            this.CTSDbContext.SaveChanges();
+            this.NgIpfDBContext.SaveChanges();
         }
     }
 }

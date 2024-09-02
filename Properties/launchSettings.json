@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "ngipf_frontend": {
+    "ngipf_backend": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -56,5 +56,8 @@ public partial class NgipfHoaList
     public virtual ICollection<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; } = new List<PlPfDdoHoaMap>();
 
     [InverseProperty("IntHoa")]
+    public virtual StakeHolderMapping? StakeHolderMapping { get; set; }
+
+    [InverseProperty("IntHoa")]
     public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 }

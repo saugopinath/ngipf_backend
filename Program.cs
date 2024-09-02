@@ -34,6 +34,8 @@ builder.Services.AddTransient<INgipfOfficeRepository, NgipfOfficeRepository>();
 builder.Services.AddTransient<IHoaRepository, HoaRepository>();
 builder.Services.AddTransient<IDdoRepository, DdoRepository>();
 builder.Services.AddTransient<IEmpPfBasicRepository, EmpPfBasicRepository>();
+builder.Services.AddTransient<IStakeHolderMappingExceptionRepository, StakeHolderMappingExceptionRepository>();
+builder.Services.AddTransient<IStakeHolderMappingRepository, StakeHolderMappingRepository>();
 
 
 
@@ -45,7 +47,8 @@ builder.Services.AddTransient<INgipfOfficeService, NgipfOfficeService>();
 builder.Services.AddTransient<IHoaService, HoaService>();
 builder.Services.AddTransient<IDdoService, DdoService>();
 builder.Services.AddTransient<IEmpPfBasicService, EmpPfBasicService>();
-
+builder.Services.AddTransient<IStakeHolderMappingExceptionService, StakeHolderMappingExceptionService>();
+builder.Services.AddTransient<IStakeHolderMappingService, StakeHolderMappingService>();
 
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();

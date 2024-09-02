@@ -14,6 +14,9 @@ namespace ngipf_frontend.DAL.Interfaces
 
         Task<ICollection<TResult>> GetSelectedColumnAsync<TResult>(Expression<Func<T, TResult>> selectExpression);
         Task<ICollection<TResult>> GetSelectedColumnByConditionAsync<TResult>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, TResult>> selectExpression);
+        Task<ICollection<TResult>> GetSelectedColumnByConditionWithSortAsync<TResult>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, TResult>> selectExpression, string orderByField = null,
+            string orderByOrder = null);
+
         Task<ICollection<TResult>> GetSelectedColumnByConditionAsync<TResult>(
             Expression<Func<T, bool>> filterExpression,
             Expression<Func<T, TResult>> selectExpression,

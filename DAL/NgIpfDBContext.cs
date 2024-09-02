@@ -1598,18 +1598,23 @@ public partial class NgIpfDBContext : DbContext
 
         modelBuilder.Entity<StakeHolderMapping>(entity =>
         {
+            entity.HasKey(e => e.IntHoaId).HasName("stake_holder_mapping_pkey");
+
+            entity.Property(e => e.IntHoaId).ValueGeneratedNever();
             entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
             entity.Property(e => e.IntStakeHolderMapping).ValueGeneratedOnAdd();
 
-            entity.HasOne(d => d.IntHoa).WithMany().HasConstraintName("fk_stake_holder_mapping_hoa");
+            entity.HasOne(d => d.IntHoa).WithOne(p => p.StakeHolderMapping)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_stake_holder_mapping_hoa");
 
-            entity.HasOne(d => d.RecoAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_ranm");
+            entity.HasOne(d => d.RecoAuthNatureNavigation).WithMany(p => p.StakeHolderMappings).HasConstraintName("fk_stake_holder_mapping_ranm");
 
-            entity.HasOne(d => d.RecomAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_rac");
+            entity.HasOne(d => d.RecomAuthCountNavigation).WithMany(p => p.StakeHolderMappings).HasConstraintName("fk_stake_holder_mapping_rac");
 
-            entity.HasOne(d => d.SancAuthCountNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_sac");
+            entity.HasOne(d => d.SancAuthCountNavigation).WithMany(p => p.StakeHolderMappings).HasConstraintName("fk_stake_holder_mapping_sac");
 
-            entity.HasOne(d => d.SanctionAuthNatureNavigation).WithMany().HasConstraintName("fk_stake_holder_mapping_sanm");
+            entity.HasOne(d => d.SanctionAuthNatureNavigation).WithMany(p => p.StakeHolderMappings).HasConstraintName("fk_stake_holder_mapping_sanm");
         });
 
         modelBuilder.Entity<StakeHolderMappingException>(entity =>

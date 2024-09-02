@@ -38,4 +38,7 @@ public partial class RecomandingNatureMst
 
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
+
+    [InverseProperty("RecoAuthNatureNavigation")]
+    public virtual ICollection<StakeHolderMapping> StakeHolderMappings { get; set; } = new List<StakeHolderMapping>();
 }

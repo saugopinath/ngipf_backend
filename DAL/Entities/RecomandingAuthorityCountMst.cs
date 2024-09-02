@@ -38,4 +38,7 @@ public partial class RecomandingAuthorityCountMst
 
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
+
+    [InverseProperty("RecomAuthCountNavigation")]
+    public virtual ICollection<StakeHolderMapping> StakeHolderMappings { get; set; } = new List<StakeHolderMapping>();
 }

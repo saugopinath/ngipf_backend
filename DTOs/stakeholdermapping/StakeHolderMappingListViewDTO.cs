@@ -8,6 +8,6 @@
         public string? RecomandingAuthRequired { get; set; }
         public string RecomandingAuthCount { get; set; }
         public string? RecomandingAuthNature { get; set; }
-        public string? ExceptionCount { get; set; }
+        public int? ExceptionCount { get; set; }
     }
 }
