@@ -38,4 +38,7 @@ public partial class WorkflowOfficeTypeMst
 
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
+
+    [Column("display_rank")]
+    public short? DisplayRank { get; set; }
 }

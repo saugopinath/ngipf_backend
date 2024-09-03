@@ -23,7 +23,7 @@ namespace ngipf_backend.Controllers
             _workflowFuncTypeService = WorkflowFuncTypeService;
             _workflowOfficeTypeService = WorkflowOfficeTypeService;
         }
-        [HttpGet("OfficeList")]
+        [HttpGet("OfficeTypeMasterList")]
         public async Task<APIResponse<List<DropdownStringCodeDTO>>> OfficeList()
         {
             APIResponse<List<DropdownStringCodeDTO>> response = new();
@@ -42,7 +42,7 @@ namespace ngipf_backend.Controllers
                 return response;
             }
         }
-         [HttpGet("FuncList")]
+        [HttpGet("FuncMasterList")]
         public async Task<APIResponse<List<DropdownStringCodeDTO>>> FuncList()
         {
             APIResponse<List<DropdownStringCodeDTO>> response = new();

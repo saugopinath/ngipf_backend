@@ -39,6 +39,9 @@ public partial class WorkflowFunctinalityTypeMst
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
 
+    [Column("display_rank")]
+    public short? DisplayRank { get; set; }
+
     [InverseProperty("IntFunc")]
     public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodeIntFuncs { get; set; } = new List<WorkflowMasterCode>();
 

@@ -17,11 +17,11 @@ namespace ngipf_backend.BAL
         }
         public async Task<List<DropdownStringCodeDTO>> GetList()
         {
-            return (List<DropdownStringCodeDTO>)await _WorkflowOfficeTypeRepository.GetSelectedColumnByConditionAsync(entity => true, entity => new DropdownStringCodeDTO
+            return (List<DropdownStringCodeDTO>)await _WorkflowOfficeTypeRepository.GetSelectedColumnByConditionWithSortAsync(entity => true, entity => new DropdownStringCodeDTO
             {
                 Name = entity.Name,
                 Code = entity.Id.ToString(),
-            });
+            }, "DisplayRank", "ASC");
         }
     }
 }
