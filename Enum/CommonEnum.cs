@@ -1,4 +1,4 @@
-﻿namespace ngipf_frontend.Enum
+﻿namespace ngipf_backend.Enum
 {
     public enum APIResponseStatus
     {

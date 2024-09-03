@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("hr_md_emp_pay_scale_band_aud", Schema = "ihrms")]
 public partial class HrMdEmpPayScaleBandAud

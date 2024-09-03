@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("token_flow", Schema = "cts")]
 [Index("ReferenceNo", Name = "fki_token_flow_reference_no_fkey")]

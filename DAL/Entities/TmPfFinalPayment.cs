@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("tm_pf_final_payment", Schema = "ngipf")]
 [Index("IntRequestId", Name = "uk_tm_gpf_final_payment1", IsUnique = true)]

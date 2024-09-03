@@ -1,4 +1,4 @@
-﻿namespace ngipf_frontend.Model.Claims
+﻿namespace ngipf_backend.Model.Claims
 {
     public class ClaimModel
     {

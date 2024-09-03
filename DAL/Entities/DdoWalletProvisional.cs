@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("ddo_wallet_provisional", Schema = "billing")]
 [Index("SaoDdoCode", "ActiveHoaId", Name = "ddo_wallet_provisional_sao_ddo_code_active_hoa_id_key", IsUnique = true)]

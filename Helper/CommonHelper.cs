@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ngipf_frontend.Helper
+namespace ngipf_backend.Helper
 {
     public static class CommonHelper
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("md_gen_bill_type", Schema = "ifmsadmin")]
 [Index("AgBillTypeId", Name = "md_gen_bill_type_ag_bill_type_id_key", IsUnique = true)]

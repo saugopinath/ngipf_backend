@@ -1,5 +1,5 @@
-using ngipf_frontend.DAL.Entities;
-namespace ngipf_frontend.DAL.Interfaces
+using ngipf_backend.DAL.Entities;
+namespace ngipf_backend.DAL.Interfaces
 {
     public interface IEmpPfBasicRepository: IRepository<EmpPfBasicDetail>
     {

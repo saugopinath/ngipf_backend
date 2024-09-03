@@ -1,12 +1,12 @@
 
-using ngipf_frontend.BAL.Interfaces;
-using ngipf_frontend.DTOs;
-using ngipf_frontend.Helper;
+using ngipf_backend.BAL.Interfaces;
+using ngipf_backend.DTOs;
+using ngipf_backend.Helper;
 using Microsoft.AspNetCore.Mvc;
-using ngipf_frontend.BAL;
+using ngipf_backend.BAL;
 
 
-namespace ngipf_frontend.Controllers
+namespace ngipf_backend.Controllers
 {
    
     [ApiController]

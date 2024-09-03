@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("hr_md_cgm_appt_auth_map", Schema = "ihrms")]
 [Index("IntDeptId", "IntCadreId", "IntGrpId", "IntAppAuthorityId", "MappByAppAuthorityId", Name = "pk_hr_md_gen_cgm_map_uk", IsUnique = true)]

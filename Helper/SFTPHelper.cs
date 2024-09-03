@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Renci.SshNet;
 using Renci.SshNet.Common;
 
-namespace ngipf_frontend.Helper
+namespace ngipf_backend.Helper
 {
     public static class SFTPHelper
     {

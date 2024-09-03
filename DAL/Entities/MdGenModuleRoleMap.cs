@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("md_gen_module_role_map", Schema = "ifmsadmin")]
 [Index("MdGenModuleRoleMapId", "TargetSubsystemAbbr", "TargetUserTypeAbbr", "TargetRoleAbbr", "ActiveFlag", "DmlStatusFlag", Name = "md_gen_module_role_map_md_gen_module_role_map_id_target_sub_key", IsUnique = true)]

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("hr_md_emp_pay_scale_band_info", Schema = "ihrms_emp_master")]
 public partial class HrMdEmpPayScaleBandInfo

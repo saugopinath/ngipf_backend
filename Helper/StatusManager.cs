@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ngipf_frontend.Helper
+namespace ngipf_backend.Helper
 {
     public static class StatusManager
     {

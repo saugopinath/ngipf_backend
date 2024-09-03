@@ -1,8 +1,8 @@
-using ngipf_frontend.DAL.Entities;
-using ngipf_frontend.DAL.Interfaces;
-namespace ngipf_frontend.DAL
+using ngipf_backend.DAL.Entities;
+using ngipf_backend.DAL.Interfaces;
+namespace ngipf_backend.DAL
 {
-    public class WorkflowOfficeTypeFuncMappingRepository: Repository<WorkflowOfficeTypeFuncMapping, NgIpfDBContext>, IWorkflowOfficeTypeRepository
+    public class WorkflowOfficeTypeFuncMappingRepository: Repository<WorkflowOfficeTypeFuncMapping, NgIpfDBContext>, IWorkflowOfficeTypeFuncMappingRepository
     {
         public WorkflowOfficeTypeFuncMappingRepository(NgIpfDBContext context) : base(context)
        {

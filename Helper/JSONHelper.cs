@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace ngipf_frontend.Helper
+namespace ngipf_backend.Helper
 {
     public class JSONHelper
     {

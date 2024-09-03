@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [PrimaryKey("MajorHead", "SubmajorHead", "MinorHead")]
 [Table("md_gen_minorhead", Schema = "ifmsadmin")]

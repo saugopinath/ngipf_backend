@@ -1,4 +1,4 @@
-namespace ngipf_frontend
+namespace ngipf_backend
 {
     public class WeatherForecast
     {

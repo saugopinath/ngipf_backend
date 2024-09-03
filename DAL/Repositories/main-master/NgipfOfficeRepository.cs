@@ -1,7 +1,7 @@
-﻿using ngipf_frontend.DAL.Entities;
-using ngipf_frontend.DAL.Interfaces;
+﻿using ngipf_backend.DAL.Entities;
+using ngipf_backend.DAL.Interfaces;
 
-namespace ngipf_frontend.DAL.Repositories.main_master
+namespace ngipf_backend.DAL.Repositories.main_master
 {
     public class NgipfOfficeRepository : Repository<MmGenNgipfOffice, NgIpfDBContext>, INgipfOfficeRepository
     {

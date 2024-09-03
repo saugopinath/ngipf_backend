@@ -1,13 +1,13 @@
-﻿using ngipf_frontend.DAL.Interfaces;
+﻿using ngipf_backend.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Linq;
-using ngipf_frontend.Helper;
-using ngipf_frontend.DTOs;
+using ngipf_backend.Helper;
+using ngipf_backend.DTOs;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
-namespace ngipf_frontend.DAL
+namespace ngipf_backend.DAL
 {
     public abstract class Repository<T, Tcontext> : IRepository<T> where T : class where Tcontext : DbContext
     {

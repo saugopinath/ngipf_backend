@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("hr_mm_gen_salary_stop_reason", Schema = "ihrms")]
 [Index("SalaryStopReasonDesc", Name = "uk_hr_mm_gen_salary_stop_re1", IsUnique = true)]

@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ngipf_frontend.BAL.Interfaces;
-using ngipf_frontend.DTOs;
-using ngipf_frontend.Helper;
+using ngipf_backend.BAL.Interfaces;
+using ngipf_backend.DTOs;
+using ngipf_backend.Helper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.Ocsp;
-using ngipf_frontend.BAL;
+using ngipf_backend.BAL;
 
-namespace ngipf_frontend.Controllers
+namespace ngipf_backend.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]

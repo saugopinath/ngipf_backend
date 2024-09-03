@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("bill_details", Schema = "billing")]
 [Index("BillNo", "DdoCode", "FinancialYear", Name = "Uk_bill_no_ddocode_fin_yr", IsUnique = true)]

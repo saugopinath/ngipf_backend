@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("md_gen_block", Schema = "ifmsadmin")]
 [Index("BlockCode", Name = "md_gen_block_block_code_key", IsUnique = true)]

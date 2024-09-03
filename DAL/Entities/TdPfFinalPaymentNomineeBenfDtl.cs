@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("td_pf_final_payment_nominee_benf_dtls", Schema = "ingipfund")]
 public partial class TdPfFinalPaymentNomineeBenfDtl

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ngipf_frontend.DTOs
+namespace ngipf_backend.DTOs
 {
     public class ChequeEntryDTO : IValidatableObject
     {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [PrimaryKey("FinYear", "IntTreasuryCode", "IntPlOperatorId", "SchemeId", "SancAuthOfficeId", "IntEmployeeId")]
 [Table("td_ngipf_op_bal_dtls", Schema = "ingipfund")]

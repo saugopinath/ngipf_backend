@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ngipf_frontend.Common
+namespace ngipf_backend.Common
 {
     public static class ErrorMessages
     {

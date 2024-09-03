@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("b_md_gen_employee_type", Schema = "ionlinebill")]
 [Index("EmplTypeAbbr", Name = "uk_b_md_gen_empl_type", IsUnique = true)]

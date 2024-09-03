@@ -1,6 +1,6 @@
-using ngipf_frontend.DTOs;
+using ngipf_backend.DTOs;
 
-namespace ngipf_frontend.BAL.Interfaces
+namespace ngipf_backend.BAL.Interfaces
 {
     public interface IEmpBasicService
     {

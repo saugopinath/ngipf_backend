@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("stamp_indent", Schema = "cts")]
 [Index("MemoNumber", Name = "stamp_indent_memo_number_memo_number1_key", IsUnique = true)]

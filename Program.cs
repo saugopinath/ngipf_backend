@@ -1,18 +1,18 @@
 using Microsoft.EntityFrameworkCore;
-using ngipf_frontend.DAL;
-using ngipf_frontend.DAL.Interfaces;
-using ngipf_frontend.BAL.Interfaces;
-using ngipf_frontend.BAL;
-using ngipf_frontend.Middlewares;
-using ngipf_frontend.Helper.Authentication;
+using ngipf_backend.DAL;
+using ngipf_backend.DAL.Interfaces;
+using ngipf_backend.BAL.Interfaces;
+using ngipf_backend.BAL;
+using ngipf_backend.Middlewares;
+using ngipf_backend.Helper.Authentication;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.AspNetCore.Mvc;
-using ngipf_frontend.Enum;
-using ngipf_frontend.Helper;
+using ngipf_backend.Enum;
+using ngipf_backend.Helper;
 using System.Collections;
-using ngipf_frontend.DAL.Repositories.main_master;
+using ngipf_backend.DAL.Repositories.main_master;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +37,8 @@ builder.Services.AddTransient<IEmpPfBasicRepository, EmpPfBasicRepository>();
 builder.Services.AddTransient<IStakeHolderMappingExceptionRepository, StakeHolderMappingExceptionRepository>();
 builder.Services.AddTransient<IStakeHolderMappingRepository, StakeHolderMappingRepository>();
 
+builder.Services.AddTransient<IWorkflowFuncTypeRepository, WorkflowFuncTypeRepository>();
+builder.Services.AddTransient<IWorkflowOfficeTypeRepository, WorkflowOfficeTypeRepository>();
 
 
 //Services
@@ -49,7 +51,8 @@ builder.Services.AddTransient<IDdoService, DdoService>();
 builder.Services.AddTransient<IEmpPfBasicService, EmpPfBasicService>();
 builder.Services.AddTransient<IStakeHolderMappingExceptionService, StakeHolderMappingExceptionService>();
 builder.Services.AddTransient<IStakeHolderMappingService, StakeHolderMappingService>();
-
+builder.Services.AddTransient<IWorkflowFuncTypeService, WorkflowFuncTypeService>();
+builder.Services.AddTransient<IWorkflowOfficeTypeService, WorkflowOfficeTypeService>();
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();
 builder.Services.AddSingleton<ITokencache, Tokencache>();

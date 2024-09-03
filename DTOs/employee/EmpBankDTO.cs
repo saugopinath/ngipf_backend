@@ -1,4 +1,4 @@
-﻿namespace ngipf_frontend.DTOs
+﻿namespace ngipf_backend.DTOs
 {
     public class EmpBankDTO
     {

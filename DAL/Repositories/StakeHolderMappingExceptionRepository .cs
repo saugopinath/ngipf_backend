@@ -1,7 +1,7 @@
-﻿using ngipf_frontend.DAL.Entities;
-using ngipf_frontend.DAL.Interfaces;
+﻿using ngipf_backend.DAL.Entities;
+using ngipf_backend.DAL.Interfaces;
 
-namespace ngipf_frontend.DAL
+namespace ngipf_backend.DAL
 {
     public class StakeHolderMappingExceptionRepository  : Repository<StakeHolderMappingException, NgIpfDBContext>, IStakeHolderMappingExceptionRepository
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("transaction_lot_has_beneficiaries", Schema = "cts_payment")]
 [Index("TransactionLotId", Name = "fki_transaction_lot_fky")]

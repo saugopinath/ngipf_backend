@@ -1,6 +1,6 @@
-﻿using ngipf_frontend.Model.Claims;
+﻿using ngipf_backend.Model.Claims;
 
-namespace ngipf_frontend.Helper.Authentication
+namespace ngipf_backend.Helper.Authentication
 {
     public class Tokencache : ITokencache
     {

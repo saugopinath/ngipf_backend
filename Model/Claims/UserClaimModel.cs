@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ngipf_frontend.Model.Claims
+namespace ngipf_backend.Model.Claims
 {
     public class UserClaimModel
     {

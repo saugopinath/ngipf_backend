@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ngipf_frontend.DAL.Entities;
+namespace ngipf_backend.DAL.Entities;
 
 [Table("mm_gen_department", Schema = "ifmsadmin")]
 [Index("DepartmentCode", Name = "mm_gen_department_department_code_key", IsUnique = true)]

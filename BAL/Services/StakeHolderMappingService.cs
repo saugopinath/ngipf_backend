@@ -1,12 +1,12 @@
 using AutoMapper;
-using ngipf_frontend.BAL.Interfaces;
-using ngipf_frontend.DAL;
-using ngipf_frontend.DAL.Entities;
-using ngipf_frontend.DAL.Interfaces;
-using ngipf_frontend.DTOs;
+using ngipf_backend.BAL.Interfaces;
+using ngipf_backend.DAL;
+using ngipf_backend.DAL.Entities;
+using ngipf_backend.DAL.Interfaces;
+using ngipf_backend.DTOs;
 using System.ComponentModel.Design;
 
-namespace ngipf_frontend.BAL
+namespace ngipf_backend.BAL
 {
     public class StakeHolderMappingService : IStakeHolderMappingService
     {
