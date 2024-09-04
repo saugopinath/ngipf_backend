@@ -136,6 +136,9 @@ public partial class MmGenTreasury
 
     public virtual ICollection<MmGenDdo> MmGenDdos { get; set; } = new List<MmGenDdo>();
 
+    [InverseProperty("IntTreasury")]
+    public virtual ICollection<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; } = new List<PlPfDdoHoaMap>();
+
     [InverseProperty("IntTreasuryCodeNavigation")]
     public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 }

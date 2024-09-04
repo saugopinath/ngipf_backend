@@ -36,10 +36,9 @@ builder.Services.AddTransient<IDdoRepository, DdoRepository>();
 builder.Services.AddTransient<IEmpPfBasicRepository, EmpPfBasicRepository>();
 builder.Services.AddTransient<IStakeHolderMappingExceptionRepository, StakeHolderMappingExceptionRepository>();
 builder.Services.AddTransient<IStakeHolderMappingRepository, StakeHolderMappingRepository>();
-
 builder.Services.AddTransient<IWorkflowFuncTypeRepository, WorkflowFuncTypeRepository>();
 builder.Services.AddTransient<IWorkflowOfficeTypeRepository, WorkflowOfficeTypeRepository>();
-
+builder.Services.AddTransient<ILfplDdoMapRepository, LfplDdoMapRepository>();
 
 //Services
 
@@ -53,6 +52,7 @@ builder.Services.AddTransient<IStakeHolderMappingExceptionService, StakeHolderMa
 builder.Services.AddTransient<IStakeHolderMappingService, StakeHolderMappingService>();
 builder.Services.AddTransient<IWorkflowFuncTypeService, WorkflowFuncTypeService>();
 builder.Services.AddTransient<IWorkflowOfficeTypeService, WorkflowOfficeTypeService>();
+builder.Services.AddTransient<ILfplDdoMapService, LfplDdoMapService>();
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();
 builder.Services.AddSingleton<ITokencache, Tokencache>();

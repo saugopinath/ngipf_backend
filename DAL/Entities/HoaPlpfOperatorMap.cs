@@ -48,6 +48,15 @@ public partial class HoaPlpfOperatorMap
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
 
+    [Column("int_treasury_id")]
+    public int? IntTreasuryId { get; set; }
+
+    [Column("int_scheme_id")]
+    public int? IntSchemeId { get; set; }
+
+    [Column("int_doo_id")]
+    public int? IntDooId { get; set; }
+
     [ForeignKey("IntHoaId")]
     public virtual NgipfHoaList IntHoa { get; set; } = null!;
 }

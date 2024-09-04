@@ -9,11 +9,6 @@ namespace ngipf_backend.DAL.Entities;
 [Table("pl_pf_ddo_hoa_map", Schema = "ngipf_master")]
 public partial class PlPfDdoHoaMap
 {
-    [Key]
-    [Column("int_pl_pf_ddo_map_old")]
-    [StringLength(38)]
-    public string IntPlPfDdoMapOld { get; set; } = null!;
-
     [Column("int_operator_id")]
     public int IntOperatorId { get; set; }
 
@@ -29,7 +24,7 @@ public partial class PlPfDdoHoaMap
 
     [Column("local_global_flag")]
     [StringLength(1)]
-    public string LocalGlobalFlag { get; set; } = null!;
+    public string? LocalGlobalFlag { get; set; }
 
     [Column("int_hoa_id")]
     public int IntHoaId { get; set; }
@@ -52,6 +47,16 @@ public partial class PlPfDdoHoaMap
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
 
+    [Column("int_treasury_id")]
+    public int IntTreasuryId { get; set; }
+
+    [Column("int_scheme_id")]
+    public int IntSchemeId { get; set; }
+
+    [Key]
+    [Column("int_pl_pf_ddo_map")]
+    public int IntPlPfDdoMap { get; set; }
+
     [ForeignKey("IntDdoId")]
     [InverseProperty("PlPfDdoHoaMaps")]
     public virtual MmGenDdo IntDdo { get; set; } = null!;
@@ -63,4 +68,8 @@ public partial class PlPfDdoHoaMap
     [ForeignKey("IntOperatorId")]
     [InverseProperty("PlPfDdoHoaMaps")]
     public virtual TMmGenPlOperator IntOperator { get; set; } = null!;
+
+    [ForeignKey("IntTreasuryId")]
+    [InverseProperty("PlPfDdoHoaMaps")]
+    public virtual MmGenTreasury IntTreasury { get; set; } = null!;
 }

@@ -6,82 +6,78 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ngipf_backend.DAL.Entities;
 
-[Keyless]
-[Table("hr_mm_gen_pl_pf_ddo_map", Schema = "ngipf")]
-public partial class HrMmGenPlPfDdoMap
+[Table("hr_mm_gen_pl_pf_ddo_map", Schema = "ihrms")]
+public partial class HrMmGenPlPfDdoMap1
 {
+    [Key]
     [Column("int_pl_pf_ddo_map")]
     [Precision(38, 0)]
-    public decimal? IntPlPfDdoMap { get; set; }
+    public decimal IntPlPfDdoMap { get; set; }
 
     [Column("int_treasury_code")]
     [StringLength(5)]
-    public string? IntTreasuryCode { get; set; }
+    public string IntTreasuryCode { get; set; } = null!;
 
     [Column("treasury_code")]
     [StringLength(4)]
-    public string? TreasuryCode { get; set; }
+    public string TreasuryCode { get; set; } = null!;
 
     [Column("treasury_name")]
     [StringLength(100)]
-    public string? TreasuryName { get; set; }
+    public string TreasuryName { get; set; } = null!;
 
     [Column("operator_id")]
-    [Precision(6, 0)]
-    public decimal? OperatorId { get; set; }
+    public int OperatorId { get; set; }
 
     [Column("operator_name")]
     [StringLength(100)]
-    public string? OperatorName { get; set; }
+    public string OperatorName { get; set; } = null!;
 
     [Column("scheme_id")]
-    [Precision(6, 0)]
-    public decimal? SchemeId { get; set; }
+    public int SchemeId { get; set; }
 
     [Column("scheme_desc")]
     [StringLength(100)]
-    public string? SchemeDesc { get; set; }
+    public string SchemeDesc { get; set; } = null!;
 
     [Column("int_operator_id")]
-    [Precision(6, 0)]
-    public decimal? IntOperatorId { get; set; }
+    public int IntOperatorId { get; set; }
 
     [Column("major_head")]
     [StringLength(4)]
-    public string? MajorHead { get; set; }
+    public string MajorHead { get; set; } = null!;
 
     [Column("submajor_head")]
     [StringLength(2)]
-    public string? SubmajorHead { get; set; }
+    public string SubmajorHead { get; set; } = null!;
 
     [Column("minor_head")]
     [StringLength(3)]
-    public string? MinorHead { get; set; }
+    public string MinorHead { get; set; } = null!;
 
     [Column("scheme_head")]
     [StringLength(3)]
-    public string? SchemeHead { get; set; }
+    public string SchemeHead { get; set; } = null!;
 
     [Column("detail_head")]
     [StringLength(2)]
-    public string? DetailHead { get; set; }
+    public string DetailHead { get; set; } = null!;
 
     [Column("int_ddo_id")]
-    [Precision(7, 0)]
-    public decimal? IntDdoId { get; set; }
+    public int IntDdoId { get; set; }
 
     [Column("active_flag")]
     [StringLength(1)]
-    public string? ActiveFlag { get; set; }
+    public string ActiveFlag { get; set; } = null!;
 
-    [Column("created_time_stamp", TypeName = "timestamp without time zone")]
+    [Column("created_time_stamp", TypeName = "timestamp(6) without time zone")]
     public DateTime CreatedTimeStamp { get; set; }
 
     [Column("created_user_id")]
     [StringLength(6)]
-    public string? CreatedUserId { get; set; }
+    public string CreatedUserId { get; set; } = null!;
 
-    [Column("modified_time_stamp", TypeName = "timestamp without time zone")]
+    [Column("modified_time_stamp", TypeName = "timestamp(6) without time zone")]
     public DateTime? ModifiedTimeStamp { get; set; }
 
     [Column("modified_user_id")]
@@ -89,20 +85,17 @@ public partial class HrMmGenPlPfDdoMap
     public string? ModifiedUserId { get; set; }
 
     [Column("dml_status_flag")]
-    [Precision(1, 0)]
-    public decimal? DmlStatusFlag { get; set; }
+    public short DmlStatusFlag { get; set; }
 
     [Column("role_id")]
-    [Precision(5, 0)]
-    public decimal? RoleId { get; set; }
+    public int? RoleId { get; set; }
 
     [Column("local_global_flag")]
     [StringLength(1)]
-    public string? LocalGlobalFlag { get; set; }
+    public string LocalGlobalFlag { get; set; } = null!;
 
     [Column("hoa_id")]
-    [Precision(6, 0)]
-    public decimal? HoaId { get; set; }
+    public int HoaId { get; set; }
 
     [Column("int_treasury_code_op")]
     [StringLength(5)]

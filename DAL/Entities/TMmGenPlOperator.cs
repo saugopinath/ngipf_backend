@@ -113,7 +113,7 @@ public partial class TMmGenPlOperator
     public string? OperatorIdOld { get; set; }
 
     [Column("operator_id")]
-    public int? OperatorId { get; set; }
+    public int OperatorId { get; set; }
 
     [Column("modified_user_id_old")]
     [StringLength(38)]

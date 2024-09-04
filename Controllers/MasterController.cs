@@ -21,13 +21,15 @@ namespace ngipf_backend.Controllers
         private readonly INgipfOfficeService _ingipfOfficeService;
         private readonly IHoaService _iHoaService;
         private readonly IDdoService _iDdoService;
-        public MasterController(ITreasuryService treasuryService, ILfplopService lfplopService, INgipfOfficeService ngipfOfficeService, IHoaService HoaService, IDdoService DdoService)
+        private readonly ILfplDdoMapService _iLfplDdoMapService;
+        public MasterController(ITreasuryService treasuryService, ILfplopService lfplopService, INgipfOfficeService ngipfOfficeService, IHoaService HoaService, IDdoService DdoService, ILfplDdoMapService LfplDdoMapService)
         {
             _treasuryService = treasuryService;
             _lfplopService = lfplopService;
             _ingipfOfficeService = ngipfOfficeService;
             _iHoaService = HoaService;
             _iDdoService = DdoService;
+            _iLfplDdoMapService = LfplDdoMapService;
         }
         [HttpGet("get-treasuries")]
         public async Task<APIResponse<List<DropdownStringCodeDTO>>> Treasuries()
@@ -152,6 +154,25 @@ namespace ngipf_backend.Controllers
                 response.apiResponseStatus = Enum.APIResponseStatus.Success;
 
                 response.result = await _iDdoService.GetDdos();
+                response.Message = "";
+                return response;
+            }
+            catch (Exception Ex)
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Error;
+                response.Message = Ex.Message;
+                return response;
+            }
+        }
+        [HttpGet("get-LfplDdoMap")]
+        public async Task<APIResponse<List<OperatorListCommonDTO>>> LfplDdoMap(int int_hoa_id=0, int int_treasury_id=0 , int int_ddo_id=0 , int int_operator_id=0)
+        {
+            APIResponse<List<OperatorListCommonDTO>> response = new();
+            try
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Success;
+
+                response.result = await _iLfplDdoMapService.GetList(int_hoa_id,int_treasury_id , int_ddo_id , int_operator_id );
                 response.Message = "";
                 return response;
             }

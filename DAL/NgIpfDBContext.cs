@@ -298,6 +298,10 @@ public partial class NgIpfDBContext : DbContext
 
     public virtual DbSet<HrMmGenPlPfDdoMap> HrMmGenPlPfDdoMaps { get; set; }
 
+    public virtual DbSet<HrMmGenPlPfDdoMap1> HrMmGenPlPfDdoMaps1 { get; set; }
+
+    public virtual DbSet<HrMmGenPlPfDdoMap2> HrMmGenPlPfDdoMaps2 { get; set; }
+
     public virtual DbSet<HrMmGenPost> HrMmGenPosts { get; set; }
 
     public virtual DbSet<HrMmGenPostType> HrMmGenPostTypes { get; set; }
@@ -1189,6 +1193,14 @@ public partial class NgIpfDBContext : DbContext
             entity.HasKey(e => e.IntPayScaleId).HasName("hr_mm_gen_pay_scale_pkey");
         });
 
+        modelBuilder.Entity<HrMmGenPlPfDdoMap1>(entity =>
+        {
+            entity.HasKey(e => e.IntPlPfDdoMap).HasName("pk_hr_mm_gen_pl_pf_ddo_map");
+
+            entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'y'::character varying");
+            entity.Property(e => e.CreatedTimeStamp).HasDefaultValueSql("CURRENT_TIMESTAMP");
+        });
+
         modelBuilder.Entity<HrMmGenQualification>(entity =>
         {
             entity.HasKey(e => e.IntQualificationId).HasName("hr_mm_gen_qualification_pkey");
@@ -1547,7 +1559,7 @@ public partial class NgIpfDBContext : DbContext
 
         modelBuilder.Entity<PlPfDdoHoaMap>(entity =>
         {
-            entity.HasKey(e => e.IntPlPfDdoMapOld).HasName("pk_hr_mm_gen_pl_pf_ddo_map");
+            entity.HasKey(e => e.IntPlPfDdoMap).HasName("pk_hr_mm_gen_pl_pf_ddo_map");
 
             entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::character varying");
 
@@ -1562,6 +1574,10 @@ public partial class NgIpfDBContext : DbContext
             entity.HasOne(d => d.IntOperator).WithMany(p => p.PlPfDdoHoaMaps)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_pl_pf_ddo_hoa_map_op");
+
+            entity.HasOne(d => d.IntTreasury).WithMany(p => p.PlPfDdoHoaMaps)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_pl_pf_ddo_hoa_map_treasury");
         });
 
         modelBuilder.Entity<RecomandingAuthorityCountMst>(entity =>
