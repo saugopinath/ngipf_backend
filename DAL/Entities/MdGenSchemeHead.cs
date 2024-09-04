@@ -125,4 +125,7 @@ public partial class MdGenSchemeHead
 
     [InverseProperty("IntScheme")]
     public virtual ICollection<NgipfHoaList> NgipfHoaLists { get; set; } = new List<NgipfHoaList>();
+
+    [InverseProperty("IntScheme")]
+    public virtual ICollection<PlPfDdoHoaMap> PlPfDdoHoaMaps { get; set; } = new List<PlPfDdoHoaMap>();
 }

@@ -18,9 +18,24 @@ namespace ngipf_backend.BAL
         }
         public async Task<List<OperatorListCommonDTO>> GetList(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
         {
-            
-           
-            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.GetSelectedColumnByConditionWithSortAsync(entity => true, entity => new OperatorListCommonDTO
+            var filterexpression = "1=1";
+            if (int_hoa_id>0)
+            {
+                filterexpression = filterexpression + "&& entity.IntHoaId=" + int_hoa_id;
+            }
+            if (int_treasury_id > 0)
+            {
+                filterexpression = filterexpression + "&& entity.IntTreasuryId=" + int_treasury_id;
+            }
+            if (int_ddo_id > 0)
+            {
+                filterexpression = filterexpression + "&& entity.IntDdoId=" + int_ddo_id;
+            }
+            if (int_operator_id > 0)
+            {
+                filterexpression = filterexpression + "&& entity.IntOperatorId=" + int_operator_id;
+            }
+            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.GetSelectedColumnByConditionWithSortAsync(entity=> filterexpression, entity => new OperatorListCommonDTO
             {
                 
                 IntOperatorId = entity.IntOperatorId,
@@ -33,6 +48,8 @@ namespace ngipf_backend.BAL
                 IntTreasuryId =entity.IntTreasuryId,
                 TreasuryCode = entity.IntTreasury.TreasuryCode,
                 TreasuryName =entity.IntTreasury.TreasuryName.ToString(),
+                IntSchemeHead=entity.IntSchemeId,
+                SchemeHeadName=entity.IntScheme.Description.ToString(),
             },"IntTreasuryId","ASC");
 
 

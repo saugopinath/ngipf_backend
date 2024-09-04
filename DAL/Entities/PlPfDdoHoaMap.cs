@@ -69,6 +69,10 @@ public partial class PlPfDdoHoaMap
     [InverseProperty("PlPfDdoHoaMaps")]
     public virtual TMmGenPlOperator IntOperator { get; set; } = null!;
 
+    [ForeignKey("IntSchemeId")]
+    [InverseProperty("PlPfDdoHoaMaps")]
+    public virtual MdGenSchemeHead IntScheme { get; set; } = null!;
+
     [ForeignKey("IntTreasuryId")]
     [InverseProperty("PlPfDdoHoaMaps")]
     public virtual MmGenTreasury IntTreasury { get; set; } = null!;

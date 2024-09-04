@@ -1575,6 +1575,10 @@ public partial class NgIpfDBContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_pl_pf_ddo_hoa_map_op");
 
+            entity.HasOne(d => d.IntScheme).WithMany(p => p.PlPfDdoHoaMaps)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_pl_pf_ddo_hoa_map_scheme");
+
             entity.HasOne(d => d.IntTreasury).WithMany(p => p.PlPfDdoHoaMaps)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_pl_pf_ddo_hoa_map_treasury");
