@@ -211,7 +211,45 @@ namespace ngipf_backend.DAL
 
             return result;
         }
+        public async Task<ICollection<TResult>> getallCommon<TResult>(
+        DynamicListQueryParameters dynamicListQueryParameters,
 
+        Expression<Func<T, TResult>> selectExpression
+    )
+        {
+            
+            List<FilterParameter> dynamicFilters = dynamicListQueryParameters.filterParameters;
+            string orderByField = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Field : null;
+            string orderByOrder = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Order : null;
+            IQueryable<T> query = this.NgIpfDBContext.Set<T>();
+
+            if (dynamicFilters != null && dynamicFilters.Any())
+            {
+                foreach (var filter in dynamicFilters)
+                {
+                    var dynimicFilterExpression = ExpressionHelper.GetFilterExpression<T>(filter.Field, filter.Value, filter.Operator);
+                    query = query.Where(dynimicFilterExpression);
+                }
+            }
+            // Dynamic order by expression
+            if (!string.IsNullOrWhiteSpace(orderByField))
+            {
+                var parameter = Expression.Parameter(typeof(T), "x");
+                var property = Expression.Property(parameter, orderByField);
+                var lambda = Expression.Lambda<Func<T, object>>(Expression.Convert(property, typeof(object)), parameter);
+
+                if (orderByOrder == "ASC")
+                {
+                    query = query.OrderBy(lambda);
+                }
+                else
+                {
+                    query = query.OrderByDescending(lambda);
+                }
+            }
+            var result = await query.Select(selectExpression).ToListAsync();
+            return result;
+        }
         public T GetSingle(Expression<Func<T, bool>> condition)
         {
             return this.NgIpfDBContext.Set<T>().Where(condition).FirstOrDefault();

@@ -2,6 +2,7 @@
 {
     public class OperatorListCommonDTO
     {
+        public int Id { get; set; }
         public int IntOperatorId { get; set; }
         public int IntOperatorCode { get; set; }
         public string OperatorName { get; set; }

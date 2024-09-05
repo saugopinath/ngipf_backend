@@ -18,40 +18,69 @@ namespace ngipf_backend.BAL
         }
         public async Task<List<OperatorListCommonDTO>> GetList(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
         {
-            var filterexpression = "1=1";
+            DynamicListQueryParameters dynamicListQueryParameters = new DynamicListQueryParameters();
+            dynamicListQueryParameters.filterParameters = new List<FilterParameter>();
             if (int_hoa_id>0)
             {
-                filterexpression = filterexpression + "&& entity.IntHoaId=" + int_hoa_id;
+                FilterParameter filterParameter = new FilterParameter
+                {
+                    Field = "IntHoaId",
+                    Value = int_hoa_id.ToString(),
+                    Operator = "equals"
+                };
+                dynamicListQueryParameters.filterParameters.Add(filterParameter);
             }
             if (int_treasury_id > 0)
             {
-                filterexpression = filterexpression + "&& entity.IntTreasuryId=" + int_treasury_id;
+                FilterParameter filterParameter = new FilterParameter
+                {
+                    Field = "IntTreasuryId",
+                    Value = int_treasury_id.ToString(),
+                    Operator = "equals"
+                };
+                dynamicListQueryParameters.filterParameters.Add(filterParameter);
             }
             if (int_ddo_id > 0)
             {
-                filterexpression = filterexpression + "&& entity.IntDdoId=" + int_ddo_id;
+                FilterParameter filterParameter = new FilterParameter
+                {
+                    Field = "IntDdoId",
+                    Value = int_ddo_id.ToString(),
+                    Operator = "equals"
+                };
+                dynamicListQueryParameters.filterParameters.Add(filterParameter);
             }
             if (int_operator_id > 0)
             {
-                filterexpression = filterexpression + "&& entity.IntOperatorId=" + int_operator_id;
+                FilterParameter filterParameter = new FilterParameter
+                {
+                    Field = "IntOperatorId",
+                    Value = int_operator_id.ToString(),
+                    Operator = "equals"
+                };
+                dynamicListQueryParameters.filterParameters.Add(filterParameter);
             }
-            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.GetSelectedColumnByConditionWithSortAsync(entity=> filterexpression, entity => new OperatorListCommonDTO
+            dynamicListQueryParameters.sortParameters = new SortParameter
             {
-                
+                Field = "IntTreasuryId",
+                Order = "ASC"
+            };
+            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.getallCommon( dynamicListQueryParameters, entity => new OperatorListCommonDTO
+            {
+                Id = entity.IntPlPfDdoMap,
                 IntOperatorId = entity.IntOperatorId,
                 OperatorName = entity.IntOperator.OperatorName.ToString(),
                 IntOperatorCode = entity.IntOperator.OperatorId,
-                IntDdoId =entity.IntDdoId,
+                IntDdoId = entity.IntDdoId,
                 DdoName = entity.IntDdo.Designation.ToString(),
-                IntHoaId =entity.IntHoaId,
+                IntHoaId = entity.IntHoaId,
                 Hoa = entity.IntHoa.Hoa.ToString(),
-                IntTreasuryId =entity.IntTreasuryId,
+                IntTreasuryId = entity.IntTreasuryId,
                 TreasuryCode = entity.IntTreasury.TreasuryCode,
-                TreasuryName =entity.IntTreasury.TreasuryName.ToString(),
-                IntSchemeHead=entity.IntSchemeId,
-                SchemeHeadName=entity.IntScheme.Description.ToString(),
-            },"IntTreasuryId","ASC");
-
+                TreasuryName = entity.IntTreasury.TreasuryName.ToString(),
+                IntSchemeHead = entity.IntSchemeId,
+                SchemeHeadName = entity.IntScheme.Description.ToString(),
+            });
 
         }
     }

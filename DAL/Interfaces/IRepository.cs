@@ -48,5 +48,12 @@ namespace ngipf_backend.DAL.Interfaces
         public IExecutionStrategy GetExecutionStrategy();
 
         public Task<object> ExecuteQuery(string sqlQuery, object parameters);
+
+        public Task<ICollection<TResult>> getallCommon<TResult>(
+         DynamicListQueryParameters dynamicListQueryParameters,
+         Expression<Func<T, TResult>> selectExpression
+     );
+
+
     }
 }

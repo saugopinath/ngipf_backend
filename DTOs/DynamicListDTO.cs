@@ -45,5 +45,10 @@
         public string Label { get; set; }
         public string? StyleClass { get; set; }
     }
+    public class DynamicListQueryParametersCommon
+    {
+        public List<FilterParameter>? filterParameters { get; set; }
+        public SortParameter? sortParameters { get; set; }
+    }
 
 }
