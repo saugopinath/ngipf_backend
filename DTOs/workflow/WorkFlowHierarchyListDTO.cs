@@ -2,7 +2,7 @@
 {
     public class WorkFlowHierarchyListDTO
     {
-        
+        public int IntMmWorkflowStatusCode { get; set; }
         public string? HOA { get; set; }
         public string Functionality { get; set; }
         public string Office { get; set; }

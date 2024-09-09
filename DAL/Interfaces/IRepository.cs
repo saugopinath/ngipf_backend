@@ -50,7 +50,7 @@ namespace ngipf_backend.DAL.Interfaces
         public Task<object> ExecuteQuery(string sqlQuery, object parameters);
 
         public Task<ICollection<TResult>> getallCommon<TResult>(
-         DynamicListQueryParameters dynamicListQueryParameters,
+         DynamicListQueryParametersCommon dynamicListQueryParametersCommon,
          Expression<Func<T, TResult>> selectExpression
      );
 

@@ -56,9 +56,6 @@ public partial class MmGenSubsystem
     [StringLength(38)]
     public string? SubSystemIdOld { get; set; }
 
-    [Column("sub_system_id")]
-    public int? SubSystemId { get; set; }
-
     [Column("created_user_id_old")]
     [StringLength(38)]
     public string? CreatedUserIdOld { get; set; }
@@ -72,4 +69,7 @@ public partial class MmGenSubsystem
 
     [Column("modified_user_id")]
     public int? ModifiedUserId { get; set; }
+
+    [Column("sub_system_id")]
+    public int SubSystemId { get; set; }
 }

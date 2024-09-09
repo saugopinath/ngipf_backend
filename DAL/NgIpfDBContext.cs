@@ -1526,6 +1526,11 @@ public partial class NgIpfDBContext : DbContext
             entity.Property(e => e.StateId).ValueGeneratedNever();
         });
 
+        modelBuilder.Entity<MmGenSubsystem>(entity =>
+        {
+            entity.Property(e => e.SubSystemId).ValueGeneratedOnAdd();
+        });
+
         modelBuilder.Entity<MmGenTreasury>(entity =>
         {
             entity.HasKey(e => e.IntTreasuryId).HasName("mm_gen_treasury_pkey");
@@ -1688,7 +1693,7 @@ public partial class NgIpfDBContext : DbContext
 
             entity.HasOne(d => d.IntOperator).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_op");
 
-            entity.HasOne(d => d.IntTreasuryCodeNavigation).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_off_tresury");
+            entity.HasOne(d => d.IntTreasury).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_off_tresury");
         });
 
         modelBuilder.Entity<WorkflowOfficeTypeFuncMapping>(entity =>
@@ -1721,6 +1726,8 @@ public partial class NgIpfDBContext : DbContext
             entity.HasOne(d => d.IntRole).WithMany(p => p.WorkflowUserMappings).HasConstraintName("fk_workflow_user_mapping_role");
 
             entity.HasOne(d => d.IntUser).WithMany(p => p.WorkflowUserMappings).HasConstraintName("fk_workflow_user_mapping_user");
+
+            entity.HasOne(d => d.IntWorkflow).WithMany(p => p.WorkflowUserMappings).HasConstraintName("fk_workflow_user_mapping_workflow");
         });
 
         OnModelCreatingPartial(modelBuilder);

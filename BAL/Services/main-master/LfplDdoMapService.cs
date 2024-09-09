@@ -18,8 +18,9 @@ namespace ngipf_backend.BAL
         }
         public async Task<List<OperatorListCommonDTO>> GetList(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
         {
-            DynamicListQueryParameters dynamicListQueryParameters = new DynamicListQueryParameters();
-            dynamicListQueryParameters.filterParameters = new List<FilterParameter>();
+            DynamicListQueryParametersCommon dynamicListQueryParametersCommon = new DynamicListQueryParametersCommon();
+            dynamicListQueryParametersCommon.filterParameters = new List<FilterParameter>();
+            dynamicListQueryParametersCommon.sortParameters = new List<SortParameter>();
             if (int_hoa_id>0)
             {
                 FilterParameter filterParameter = new FilterParameter
@@ -28,7 +29,7 @@ namespace ngipf_backend.BAL
                     Value = int_hoa_id.ToString(),
                     Operator = "equals"
                 };
-                dynamicListQueryParameters.filterParameters.Add(filterParameter);
+                dynamicListQueryParametersCommon.filterParameters.Add(filterParameter);
             }
             if (int_treasury_id > 0)
             {
@@ -38,7 +39,7 @@ namespace ngipf_backend.BAL
                     Value = int_treasury_id.ToString(),
                     Operator = "equals"
                 };
-                dynamicListQueryParameters.filterParameters.Add(filterParameter);
+                dynamicListQueryParametersCommon.filterParameters.Add(filterParameter);
             }
             if (int_ddo_id > 0)
             {
@@ -48,7 +49,7 @@ namespace ngipf_backend.BAL
                     Value = int_ddo_id.ToString(),
                     Operator = "equals"
                 };
-                dynamicListQueryParameters.filterParameters.Add(filterParameter);
+                dynamicListQueryParametersCommon.filterParameters.Add(filterParameter);
             }
             if (int_operator_id > 0)
             {
@@ -58,14 +59,15 @@ namespace ngipf_backend.BAL
                     Value = int_operator_id.ToString(),
                     Operator = "equals"
                 };
-                dynamicListQueryParameters.filterParameters.Add(filterParameter);
+                dynamicListQueryParametersCommon.filterParameters.Add(filterParameter);
             }
-            dynamicListQueryParameters.sortParameters = new SortParameter
+            SortParameter sortParameter1 = new SortParameter
             {
-                Field = "IntTreasuryId",
+                Field = "IntHoaId",
                 Order = "ASC"
             };
-            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.getallCommon( dynamicListQueryParameters, entity => new OperatorListCommonDTO
+            dynamicListQueryParametersCommon.sortParameters.Add(sortParameter1);
+            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.getallCommon(dynamicListQueryParametersCommon, entity => new OperatorListCommonDTO
             {
                 Id = entity.IntPlPfDdoMap,
                 IntOperatorId = entity.IntOperatorId,

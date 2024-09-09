@@ -38,6 +38,7 @@ builder.Services.AddTransient<IStakeHolderMappingExceptionRepository, StakeHolde
 builder.Services.AddTransient<IStakeHolderMappingRepository, StakeHolderMappingRepository>();
 builder.Services.AddTransient<IWorkflowFuncTypeRepository, WorkflowFuncTypeRepository>();
 builder.Services.AddTransient<IWorkflowOfficeTypeRepository, WorkflowOfficeTypeRepository>();
+builder.Services.AddTransient<IWorkflowMasterCodeRepository, WorkflowMasterCodeRepository>();
 builder.Services.AddTransient<ILfplDdoMapRepository, LfplDdoMapRepository>();
 
 //Services
@@ -52,6 +53,7 @@ builder.Services.AddTransient<IStakeHolderMappingExceptionService, StakeHolderMa
 builder.Services.AddTransient<IStakeHolderMappingService, StakeHolderMappingService>();
 builder.Services.AddTransient<IWorkflowFuncTypeService, WorkflowFuncTypeService>();
 builder.Services.AddTransient<IWorkflowOfficeTypeService, WorkflowOfficeTypeService>();
+builder.Services.AddTransient<IWorkflowMasterCodeService, WorkflowMasterCodeService>();
 builder.Services.AddTransient<ILfplDdoMapService, LfplDdoMapService>();
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();

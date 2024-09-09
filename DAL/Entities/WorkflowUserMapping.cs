@@ -44,6 +44,9 @@ public partial class WorkflowUserMapping
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
 
+    [Column("int_workflow_id")]
+    public int? IntWorkflowId { get; set; }
+
     [ForeignKey("IntRoleId")]
     [InverseProperty("WorkflowUserMappings")]
     public virtual MmGenRole? IntRole { get; set; }
@@ -51,4 +54,8 @@ public partial class WorkflowUserMapping
     [ForeignKey("IntUserId")]
     [InverseProperty("WorkflowUserMappings")]
     public virtual MmGenUser? IntUser { get; set; }
+
+    [ForeignKey("IntWorkflowId")]
+    [InverseProperty("WorkflowUserMappings")]
+    public virtual WorkflowMasterCode? IntWorkflow { get; set; }
 }

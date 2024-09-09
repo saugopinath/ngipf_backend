@@ -47,8 +47,10 @@
     }
     public class DynamicListQueryParametersCommon
     {
+             
         public List<FilterParameter>? filterParameters { get; set; }
-        public SortParameter? sortParameters { get; set; }
+        public List<SortParameter>? sortParameters { get; set; }
+       
     }
 
 }

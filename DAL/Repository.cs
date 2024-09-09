@@ -212,15 +212,14 @@ namespace ngipf_backend.DAL
             return result;
         }
         public async Task<ICollection<TResult>> getallCommon<TResult>(
-        DynamicListQueryParameters dynamicListQueryParameters,
+        DynamicListQueryParametersCommon dynamicListQueryParametersCommon,
 
         Expression<Func<T, TResult>> selectExpression
     )
         {
             
-            List<FilterParameter> dynamicFilters = dynamicListQueryParameters.filterParameters;
-            string orderByField = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Field : null;
-            string orderByOrder = (dynamicListQueryParameters.sortParameters != null) ? dynamicListQueryParameters.sortParameters.Order : null;
+            List<FilterParameter> dynamicFilters = dynamicListQueryParametersCommon.filterParameters;
+           
             IQueryable<T> query = this.NgIpfDBContext.Set<T>();
 
             if (dynamicFilters != null && dynamicFilters.Any())
@@ -231,20 +230,28 @@ namespace ngipf_backend.DAL
                     query = query.Where(dynimicFilterExpression);
                 }
             }
-            // Dynamic order by expression
-            if (!string.IsNullOrWhiteSpace(orderByField))
-            {
-                var parameter = Expression.Parameter(typeof(T), "x");
-                var property = Expression.Property(parameter, orderByField);
-                var lambda = Expression.Lambda<Func<T, object>>(Expression.Convert(property, typeof(object)), parameter);
+            List<SortParameter> dynamicSorts = dynamicListQueryParametersCommon.sortParameters;
 
-                if (orderByOrder == "ASC")
+
+            // Dynamic order by expression
+            if (dynamicSorts != null && dynamicSorts.Any())
+            {
+                foreach (var sortItem in dynamicSorts)
                 {
-                    query = query.OrderBy(lambda);
-                }
-                else
-                {
-                    query = query.OrderByDescending(lambda);
+                    string orderByField = (sortItem.Field != null) ? sortItem.Field : null;
+                    string orderByOrder = (sortItem.Order != null) ? sortItem.Order : null;
+                    var parameter = Expression.Parameter(typeof(T), "x");
+                    var property = Expression.Property(parameter, orderByField);
+                    var lambda = Expression.Lambda<Func<T, object>>(Expression.Convert(property, typeof(object)), parameter);
+
+                    if (orderByOrder == "ASC")
+                    {
+                        query = query.OrderBy(lambda);
+                    }
+                    else
+                    {
+                        query = query.OrderByDescending(lambda);
+                    }
                 }
             }
             var result = await query.Select(selectExpression).ToListAsync();

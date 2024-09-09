@@ -22,8 +22,8 @@ public partial class WorkflowMasterCode
     [Column("int_hoa_id")]
     public int? IntHoaId { get; set; }
 
-    [Column("int_treasury_code")]
-    public int? IntTreasuryCode { get; set; }
+    [Column("int_treasury_id")]
+    public int? IntTreasuryId { get; set; }
 
     [Column("int_operator_id")]
     public int? IntOperatorId { get; set; }
@@ -66,7 +66,10 @@ public partial class WorkflowMasterCode
     [InverseProperty("WorkflowMasterCodes")]
     public virtual TMmGenPlOperator? IntOperator { get; set; }
 
-    [ForeignKey("IntTreasuryCode")]
+    [ForeignKey("IntTreasuryId")]
     [InverseProperty("WorkflowMasterCodes")]
-    public virtual MmGenTreasury? IntTreasuryCodeNavigation { get; set; }
+    public virtual MmGenTreasury? IntTreasury { get; set; }
+
+    [InverseProperty("IntWorkflow")]
+    public virtual ICollection<WorkflowUserMapping> WorkflowUserMappings { get; set; } = new List<WorkflowUserMapping>();
 }
