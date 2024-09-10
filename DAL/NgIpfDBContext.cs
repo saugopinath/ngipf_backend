@@ -1685,11 +1685,11 @@ public partial class NgIpfDBContext : DbContext
             entity.Property(e => e.IntMmWorkflowStatusCode).HasDefaultValueSql("nextval('ngipf_master.mm_workflow_master_code_int_mm_workflow_status_code_seq'::regclass)");
             entity.Property(e => e.ActiveFlag).HasDefaultValueSql("'Y'::bpchar");
 
-            entity.HasOne(d => d.IntFunc).WithMany(p => p.WorkflowMasterCodeIntFuncs).HasConstraintName("fk_workflow_master_code_func");
+            entity.HasOne(d => d.IntFunc).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_func");
 
             entity.HasOne(d => d.IntHoa).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_hoa");
 
-            entity.HasOne(d => d.IntOfficeType).WithMany(p => p.WorkflowMasterCodeIntOfficeTypes).HasConstraintName("fk_workflow_master_code_off_type");
+            entity.HasOne(d => d.IntOfficeType).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_off_type");
 
             entity.HasOne(d => d.IntOperator).WithMany(p => p.WorkflowMasterCodes).HasConstraintName("fk_workflow_master_code_op");
 

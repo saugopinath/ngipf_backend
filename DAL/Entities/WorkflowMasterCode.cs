@@ -51,7 +51,7 @@ public partial class WorkflowMasterCode
     public DateTime? DeletedAt { get; set; }
 
     [ForeignKey("IntFuncId")]
-    [InverseProperty("WorkflowMasterCodeIntFuncs")]
+    [InverseProperty("WorkflowMasterCodes")]
     public virtual WorkflowFunctinalityTypeMst? IntFunc { get; set; }
 
     [ForeignKey("IntHoaId")]
@@ -59,8 +59,8 @@ public partial class WorkflowMasterCode
     public virtual NgipfHoaList? IntHoa { get; set; }
 
     [ForeignKey("IntOfficeTypeId")]
-    [InverseProperty("WorkflowMasterCodeIntOfficeTypes")]
-    public virtual WorkflowFunctinalityTypeMst? IntOfficeType { get; set; }
+    [InverseProperty("WorkflowMasterCodes")]
+    public virtual WorkflowOfficeTypeMst? IntOfficeType { get; set; }
 
     [ForeignKey("IntOperatorId")]
     [InverseProperty("WorkflowMasterCodes")]

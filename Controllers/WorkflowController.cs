@@ -16,15 +16,18 @@ namespace ngipf_backend.Controllers
     {
        
        
-         private readonly  IWorkflowFuncTypeService _workflowFuncTypeService;
+         private readonly IWorkflowFuncTypeService _workflowFuncTypeService;
          private readonly IWorkflowOfficeTypeService _workflowOfficeTypeService;
          private readonly IWorkflowMasterCodeService _workflowMasterCodeService;
-
-        public WorkflowController(IWorkflowFuncTypeService WorkflowFuncTypeService,IWorkflowOfficeTypeService WorkflowOfficeTypeService, IWorkflowMasterCodeService WorkflowMasterCodeService)
+         private readonly  IWorkflowUserMappingService _workflowUserMappingService;
+        public WorkflowController(IWorkflowFuncTypeService WorkflowFuncTypeService,IWorkflowOfficeTypeService WorkflowOfficeTypeService, 
+            IWorkflowMasterCodeService WorkflowMasterCodeService,
+            IWorkflowUserMappingService WorkflowUserMappingService)
         {
             _workflowFuncTypeService = WorkflowFuncTypeService;
             _workflowOfficeTypeService = WorkflowOfficeTypeService;
             _workflowMasterCodeService = WorkflowMasterCodeService;
+            _workflowUserMappingService = WorkflowUserMappingService;
         }
         [HttpGet("OfficeTypeMasterList")]
         public async Task<APIResponse<List<DropdownStringCodeDTO>>> OfficeList()
@@ -84,7 +87,24 @@ namespace ngipf_backend.Controllers
                 return response;
             }
         }
-
+        [HttpGet("WorkFlowUserMapping")]
+        public async Task<APIResponse<List<WorkFlowHierarchyDetailsDTO>>> WorkFlowUserMapping(int WorkFlowId)
+        {
+            APIResponse<List<WorkFlowHierarchyDetailsDTO>> response = new();
+            try
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Success;
+                response.result = await _workflowUserMappingService.GetList(WorkFlowId);
+                response.Message = "";
+                return response;
+            }
+            catch (Exception Ex)
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Error;
+                response.Message = Ex.Message;
+                return response;
+            }
+        }
 
 
 

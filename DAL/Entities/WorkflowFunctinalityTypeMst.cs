@@ -43,10 +43,7 @@ public partial class WorkflowFunctinalityTypeMst
     public short? DisplayRank { get; set; }
 
     [InverseProperty("IntFunc")]
-    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodeIntFuncs { get; set; } = new List<WorkflowMasterCode>();
-
-    [InverseProperty("IntOfficeType")]
-    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodeIntOfficeTypes { get; set; } = new List<WorkflowMasterCode>();
+    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 
     [InverseProperty("IntFunc")]
     public virtual ICollection<WorkflowOfficeTypeFuncMapping> WorkflowOfficeTypeFuncMappingIntFuncs { get; set; } = new List<WorkflowOfficeTypeFuncMapping>();

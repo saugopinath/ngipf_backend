@@ -41,4 +41,7 @@ public partial class WorkflowOfficeTypeMst
 
     [Column("display_rank")]
     public short? DisplayRank { get; set; }
+
+    [InverseProperty("IntOfficeType")]
+    public virtual ICollection<WorkflowMasterCode> WorkflowMasterCodes { get; set; } = new List<WorkflowMasterCode>();
 }
