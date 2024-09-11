@@ -19,7 +19,7 @@ namespace ngipf_backend.Controllers
          private readonly IWorkflowFuncTypeService _workflowFuncTypeService;
          private readonly IWorkflowOfficeTypeService _workflowOfficeTypeService;
          private readonly IWorkflowMasterCodeService _workflowMasterCodeService;
-         private readonly  IWorkflowUserMappingService _workflowUserMappingService;
+         private readonly IWorkflowUserMappingService _workflowUserMappingService;
         public WorkflowController(IWorkflowFuncTypeService WorkflowFuncTypeService,IWorkflowOfficeTypeService WorkflowOfficeTypeService, 
             IWorkflowMasterCodeService WorkflowMasterCodeService,
             IWorkflowUserMappingService WorkflowUserMappingService)

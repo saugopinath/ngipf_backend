@@ -19,8 +19,20 @@ namespace ngipf_backend.Helper
             {
                 propertyAccess = GetPropertyAccess<T>(parameter, field);
             }
+            var targetType = Nullable.GetUnderlyingType(propertyAccess.Type) ?? propertyAccess.Type;
+            object constant;
 
-            var convertedValue = Expression.Constant(Convert.ChangeType(value, propertyAccess.Type));
+            if (string.IsNullOrEmpty(value))
+            {
+                constant = null;
+            }
+            else
+            {
+                constant = Convert.ChangeType(value, targetType);
+            }
+
+            var convertedValue = Expression.Constant(constant, propertyAccess.Type);
+            // var convertedValue = Expression.Constant(Convert.ChangeType(value, propertyAccess.Type));
 
             Expression predicate;
 
@@ -86,4 +98,5 @@ namespace ngipf_backend.Helper
             return Expression.Property(parameter, property);
         }
     }
+
 }
