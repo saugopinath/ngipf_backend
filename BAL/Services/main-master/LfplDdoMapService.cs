@@ -67,7 +67,8 @@ namespace ngipf_backend.BAL
                 Order = "ASC"
             };
             dynamicListQueryParametersCommon.sortParameters.Add(sortParameter1);
-            return (List<OperatorListCommonDTO>)await _LfplDdoMapRepository.getallCommon(dynamicListQueryParametersCommon, entity => new OperatorListCommonDTO
+            _LfplDdoMapRepository.GetAllByConditionAsync(e=>e.);
+            return (List<OperatorListCommonDTO>) await _LfplDdoMapRepository.getallCommon(dynamicListQueryParametersCommon, entity => new OperatorListCommonDTO
             {
                 Id = entity.IntPlPfDdoMap,
                 IntOperatorId = entity.IntOperatorId,
@@ -85,5 +86,6 @@ namespace ngipf_backend.BAL
             });
 
         }
+       
     }
 }

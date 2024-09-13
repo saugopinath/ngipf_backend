@@ -257,6 +257,7 @@ namespace ngipf_backend.DAL
             var result = await query.Select(selectExpression).ToListAsync();
             return result;
         }
+    
         public T GetSingle(Expression<Func<T, bool>> condition)
         {
             return this.NgIpfDBContext.Set<T>().Where(condition).FirstOrDefault();

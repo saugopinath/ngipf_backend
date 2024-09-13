@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Asn1.Ocsp;
 using ngipf_backend.BAL;
+using ngipf_backend.DAL.Interfaces;
 
 namespace ngipf_backend.Controllers
 {
@@ -174,6 +175,25 @@ namespace ngipf_backend.Controllers
                 response.apiResponseStatus = Enum.APIResponseStatus.Success;
 
                 response.result = await _iLfplDdoMapService.GetList(int_hoa_id,int_treasury_id , int_ddo_id , int_operator_id );
+                response.Message = "";
+                return response;
+            }
+            catch (Exception Ex)
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Error;
+                response.Message = Ex.Message;
+                return response;
+            }
+        }
+        [HttpGet("get-ngipf-treasuries")]
+        public async Task<APIResponse<IEnumerable<TestDTO>>> NgipfTreasuries(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
+        {
+            APIResponse<IEnumerable<TestDTO>> response = new();
+            try
+            {
+ 
+                response.apiResponseStatus = Enum.APIResponseStatus.Success;
+                response.result = await _iLfplDdoMapService.GetDistinctTreasurys(int_hoa_id , int_treasury_id, int_ddo_id, int_operator_id);
                 response.Message = "";
                 return response;
             }
