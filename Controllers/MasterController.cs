@@ -186,14 +186,14 @@ namespace ngipf_backend.Controllers
             }
         }
         [HttpGet("get-ngipf-treasuries")]
-        public async Task<APIResponse<IEnumerable<TestDTO>>> NgipfTreasuries(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
+        public async Task<APIResponse<List<TresuryDTO>>> LfplTresury(int int_hoa_id)
         {
-            APIResponse<IEnumerable<TestDTO>> response = new();
+            APIResponse<List<TresuryDTO>> response = new();
             try
             {
- 
                 response.apiResponseStatus = Enum.APIResponseStatus.Success;
-                response.result = await _iLfplDdoMapService.GetDistinctTreasurys(int_hoa_id , int_treasury_id, int_ddo_id, int_operator_id);
+
+                response.result = await _iLfplDdoMapService.GetTresuries(int_hoa_id);
                 response.Message = "";
                 return response;
             }

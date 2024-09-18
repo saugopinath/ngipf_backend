@@ -4,7 +4,7 @@ namespace ngipf_backend.DAL.Interfaces
 {
     public interface ILfplDdoMapRepository: IRepository<PlPfDdoHoaMap>
     {
-        public Task<List<TresuryDTO>> GetTresury(int int_hoa_id);
+        public List<TresuryDTO> GetTresury(int int_hoa_id);
 
     }
 

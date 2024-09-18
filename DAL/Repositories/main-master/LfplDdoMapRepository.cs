@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ngipf_backend.DAL.Entities;
 using ngipf_backend.DAL.Interfaces;
 using ngipf_backend.DTOs;
+using System.Diagnostics.Metrics;
 
 namespace ngipf_backend.DAL
 {
@@ -10,34 +11,25 @@ namespace ngipf_backend.DAL
        public LfplDdoMapRepository(NgIpfDBContext context) : base(context)
        {
        }
-
-        public async Task<List<TresuryDTO>> GetTresury(int int_hoa_id)
+        public List<TresuryDTO> GetTresury(int int_hoa_id)
         {
             var tresuryids = NgIpfDBContext.PlPfDdoHoaMaps
-             .Where(a => a.IntHoaId == int_hoa_id)//if you have any condition
-             .Select(m => m.IntTreasuryId).Distinct();
+            .Where(a => a.IntHoaId == int_hoa_id)//if you have any condition
+            .Select(m => m.IntTreasuryId).Distinct();
 
-            var posts = await NgIpfDBContext.MmGenTreasuries
-             .Where(p => tresuryids.Contains(p.IntTreasuryId))
-             .ToListAsync();
-
-            return (List<TresuryDTO>)await NgIpfDBContext.MmGenTreasuries(dynamicListQueryParametersCommon, entity => new TresuryDTO
-            {
-                Id = entity.IntPlPfDdoMap,
-                IntOperatorId = entity.IntOperatorId,
-                OperatorName = entity.IntOperator.OperatorName.ToString(),
-                IntOperatorCode = entity.IntOperator.OperatorId,
-                IntDdoId = entity.IntDdoId,
-                DdoName = entity.IntDdo.Designation.ToString(),
-                IntHoaId = entity.IntHoaId,
-                Hoa = entity.IntHoa.Hoa.ToString(),
-                IntTreasuryId = entity.IntTreasuryId,
-                TreasuryCode = entity.IntTreasury.TreasuryCode,
-                TreasuryName = entity.IntTreasury.TreasuryName.ToString(),
-                IntSchemeHead = entity.IntSchemeId,
-                SchemeHeadName = entity.IntScheme.Description.ToString(),
-            });
-
+           
+              var t = NgIpfDBContext.MmGenTreasuries
+                    .Where(p => tresuryids.Contains(p.IntTreasuryId)).OrderBy(a => a.IntTreasuryId)
+                    .Select(x => new TresuryDTO
+                    {
+                        TreasuryCode = x.TreasuryCode,
+                        IntTreasuryId = x.IntTreasuryId,
+                        TreasuryName = x.TreasuryName
+                    }).ToList();
+                return t;
+            
         }
+
+      
     }
 }

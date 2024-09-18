@@ -11,9 +11,11 @@ namespace ngipf_backend.BAL
     public class LfplDdoMapService: ILfplDdoMapService
     {
         private readonly ILfplDdoMapRepository _LfplDdoMapRepository;
+        private readonly ITreasuryRepository _TreasuryRepository;
         private readonly IMapper _mapper;
-        public LfplDdoMapService(ILfplDdoMapRepository LfplDdoMapRepository, IMapper mapper) {
+        public LfplDdoMapService(ILfplDdoMapRepository LfplDdoMapRepository, ITreasuryRepository TreasuryRepository, IMapper mapper) {
             _LfplDdoMapRepository = LfplDdoMapRepository;
+            _TreasuryRepository = TreasuryRepository;
             _mapper = mapper;
         }
         public async Task<List<OperatorListCommonDTO>> GetList(int int_hoa_id = 0, int int_treasury_id = 0, int int_ddo_id = 0, int int_operator_id = 0)
@@ -67,7 +69,7 @@ namespace ngipf_backend.BAL
                 Order = "ASC"
             };
             dynamicListQueryParametersCommon.sortParameters.Add(sortParameter1);
-            _LfplDdoMapRepository.GetAllByConditionAsync(e=>e.);
+        
             return (List<OperatorListCommonDTO>) await _LfplDdoMapRepository.getallCommon(dynamicListQueryParametersCommon, entity => new OperatorListCommonDTO
             {
                 Id = entity.IntPlPfDdoMap,
@@ -86,6 +88,12 @@ namespace ngipf_backend.BAL
             });
 
         }
-       
+        public async Task<List<TresuryDTO>> GetTresuries(int int_hoa_id)
+        {
+            var tresuryids = _LfplDdoMapRepository.GetTresury(int_hoa_id);
+            return tresuryids;
+
+        }
+
     }
 }
