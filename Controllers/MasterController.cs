@@ -204,6 +204,25 @@ namespace ngipf_backend.Controllers
                 return response;
             }
         }
+        [HttpGet("get-ngipf-pfdadmin")]
+        public async Task<APIResponse<List<PfdAdminDTO>>> GetPfdAdmin(int int_treasury_id, int int_hoa_id)
+        {
+            APIResponse<List<PfdAdminDTO>> response = new();
+            try
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Success;
+
+                response.result = await _iLfplDdoMapService.GetPfdAdmin(int_treasury_id,int_hoa_id);
+                response.Message = "";
+                return response;
+            }
+            catch (Exception Ex)
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Error;
+                response.Message = Ex.Message;
+                return response;
+            }
+        }
 
     }
 }

@@ -6,5 +6,6 @@ namespace ngipf_backend.BAL.Interfaces
     {
         public Task<List<OperatorListCommonDTO>> GetList(int int_hoa_id=0,int int_treasury_id=0,int int_ddo_id=0,int int_operator_id=0);
         public Task<List<TresuryDTO>> GetTresuries(int int_hoa_id);
+        public Task<List<PfdAdminDTO>> GetPfdAdmin(int int_treasury_id, int int_hoa_id);
     }
 }

@@ -29,7 +29,25 @@ namespace ngipf_backend.DAL
                 return t;
             
         }
+        public List<PfdAdminDTO> GetPfdAdmin(int int_treasury_id, int int_hoa_id)
+        {
+            var ids = NgIpfDBContext.PlPfDdoHoaMaps
+            .Where(a => a.IntTreasuryId == int_treasury_id && a.IntHoaId == int_hoa_id)//if you have any condition
+            .Select(m => m.IntOperatorId).Distinct();
 
-      
+
+            var t = NgIpfDBContext.TMmGenPlOperators
+                  .Where(p => ids.Contains(p.IntPlOperatorId)).OrderBy(a => a.IntPlOperatorId)
+                  .Select(x => new PfdAdminDTO
+                  {
+                      IntOperatorId = x.IntPlOperatorId,
+                      OperatorName = x.OperatorName,
+                      OperatorCode=x.OperatorId.ToString()
+                  }).ToList();
+            return t;
+
+        }
+
+
     }
 }

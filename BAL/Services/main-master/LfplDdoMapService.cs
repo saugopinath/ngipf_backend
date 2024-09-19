@@ -94,6 +94,12 @@ namespace ngipf_backend.BAL
             return tresuryids;
 
         }
+        public async Task<List<PfdAdminDTO>> GetPfdAdmin(int int_treasury_id, int int_hoa_id)
+        {
+            var ids = _LfplDdoMapRepository.GetPfdAdmin(int_treasury_id,int_hoa_id);
+            return ids;
+
+        }
 
     }
 }
