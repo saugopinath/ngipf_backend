@@ -23,7 +23,9 @@ namespace ngipf_backend.Controllers
         private readonly IHoaService _iHoaService;
         private readonly IDdoService _iDdoService;
         private readonly ILfplDdoMapService _iLfplDdoMapService;
-        public MasterController(ITreasuryService treasuryService, ILfplopService lfplopService, INgipfOfficeService ngipfOfficeService, IHoaService HoaService, IDdoService DdoService, ILfplDdoMapService LfplDdoMapService)
+          private readonly IStatusMasterService _statusMasterService;
+        public MasterController(ITreasuryService treasuryService, ILfplopService lfplopService, INgipfOfficeService ngipfOfficeService, IHoaService HoaService, IDdoService DdoService
+        , ILfplDdoMapService LfplDdoMapService,IStatusMasterService StatusMasterService)
         {
             _treasuryService = treasuryService;
             _lfplopService = lfplopService;
@@ -31,6 +33,7 @@ namespace ngipf_backend.Controllers
             _iHoaService = HoaService;
             _iDdoService = DdoService;
             _iLfplDdoMapService = LfplDdoMapService;
+             _statusMasterService = StatusMasterService;
         }
         [HttpGet("get-treasuries")]
         public async Task<APIResponse<List<DropdownStringCodeDTO>>> Treasuries()
@@ -215,6 +218,25 @@ namespace ngipf_backend.Controllers
                 response.result = await _iLfplDdoMapService.GetPfdAdmin(int_treasury_id,int_hoa_id);
                 response.Message = "";
                 return response;
+            }
+            catch (Exception Ex)
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Error;
+                response.Message = Ex.Message;
+                return response;
+            }
+        }
+         [HttpGet("get-status-master")]
+        public async Task<APIResponse<List<DropdownStringCodeDTO>>> StatusMasterList()
+        {
+            APIResponse<List<DropdownStringCodeDTO>> response = new();  
+            try
+            {
+                response.apiResponseStatus = Enum.APIResponseStatus.Success;
+                
+                response.result =  await _statusMasterService.GetList(); 
+                response.Message = "";
+                return response ;
             }
             catch (Exception Ex)
             {

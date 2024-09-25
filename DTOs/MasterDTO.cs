@@ -77,6 +77,9 @@ namespace ngipf_backend.DTOs
        
 
     }
+    public class StatusMasterDTO: DropdownStringCodeDTO
+    {
+    }
 
 
 }
