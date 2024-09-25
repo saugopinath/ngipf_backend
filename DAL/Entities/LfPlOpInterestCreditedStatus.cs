@@ -67,4 +67,8 @@ public partial class LfPlOpInterestCreditedStatus
     [ForeignKey("IntOperatorId")]
     [InverseProperty("LfPlOpInterestCreditedStatuses")]
     public virtual TMmGenPlOperator IntOperator { get; set; } = null!;
+
+    [ForeignKey("Status")]
+    [InverseProperty("LfPlOpInterestCreditedStatuses")]
+    public virtual StatusMaster? StatusNavigation { get; set; }
 }

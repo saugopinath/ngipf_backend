@@ -1334,6 +1334,8 @@ public partial class NgIpfDBContext : DbContext
             entity.HasOne(d => d.IntOperator).WithMany(p => p.LfPlOpInterestCreditedStatuses)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_lf_pl_op_interest_credited_status_op_code");
+
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.LfPlOpInterestCreditedStatuses).HasConstraintName("fk_lf_pl_op_interest_credited_status_status_master");
         });
 
         modelBuilder.Entity<LfPlOpInterestGenerationList>(entity =>

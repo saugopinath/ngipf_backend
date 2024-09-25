@@ -18,7 +18,7 @@ public partial class StatusMaster
     public string? MasterDescr { get; set; }
 
     [Column("master_type")]
-    [StringLength(20)]
+    [StringLength(50)]
     public string? MasterType { get; set; }
 
     [Column("active_flag")]
@@ -58,4 +58,7 @@ public partial class StatusMaster
 
     [InverseProperty("StatusNavigation")]
     public virtual ICollection<EmpPfBasicDetail> EmpPfBasicDetailStatusNavigations { get; set; } = new List<EmpPfBasicDetail>();
+
+    [InverseProperty("StatusNavigation")]
+    public virtual ICollection<LfPlOpInterestCreditedStatus> LfPlOpInterestCreditedStatuses { get; set; } = new List<LfPlOpInterestCreditedStatus>();
 }
