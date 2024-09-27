@@ -23,7 +23,7 @@ namespace ngipf_backend.Controllers
         private readonly IHoaService _iHoaService;
         private readonly IDdoService _iDdoService;
         private readonly ILfplDdoMapService _iLfplDdoMapService;
-          private readonly IStatusMasterService _statusMasterService;
+        private readonly IStatusMasterService _statusMasterService;
         public MasterController(ITreasuryService treasuryService, ILfplopService lfplopService, INgipfOfficeService ngipfOfficeService, IHoaService HoaService, IDdoService DdoService
         , ILfplDdoMapService LfplDdoMapService,IStatusMasterService StatusMasterService)
         {
@@ -33,12 +33,12 @@ namespace ngipf_backend.Controllers
             _iHoaService = HoaService;
             _iDdoService = DdoService;
             _iLfplDdoMapService = LfplDdoMapService;
-             _statusMasterService = StatusMasterService;
+            _statusMasterService = StatusMasterService;
         }
         [HttpGet("get-treasuries")]
-        public async Task<APIResponse<List<DropdownStringCodeDTO>>> Treasuries()
+        public async Task<APIResponse<List<TresuryDTO>>> Treasuries()
         {
-            APIResponse<List<DropdownStringCodeDTO>> response = new();  
+            APIResponse<List<TresuryDTO>> response = new();  
             try
             {
                 response.apiResponseStatus = Enum.APIResponseStatus.Success;
@@ -227,14 +227,14 @@ namespace ngipf_backend.Controllers
             }
         }
          [HttpGet("get-status-master")]
-        public async Task<APIResponse<List<DropdownStringCodeDTO>>> StatusMasterList()
+        public async Task<APIResponse<List<DropdownIntCodeDTO>>> StatusMasterList(int master_type_id)
         {
-            APIResponse<List<DropdownStringCodeDTO>> response = new();  
+            APIResponse<List<DropdownIntCodeDTO>> response = new();  
             try
             {
                 response.apiResponseStatus = Enum.APIResponseStatus.Success;
                 
-                response.result =  await _statusMasterService.GetList(); 
+                response.result =  await _statusMasterService.GetList(master_type_id); 
                 response.Message = "";
                 return response ;
             }

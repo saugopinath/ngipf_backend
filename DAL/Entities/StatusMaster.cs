@@ -53,6 +53,9 @@ public partial class StatusMaster
     [Column("deleted_at", TypeName = "timestamp without time zone")]
     public DateTime? DeletedAt { get; set; }
 
+    [Column("master_type_id")]
+    public short? MasterTypeId { get; set; }
+
     [InverseProperty("IntSalarySourceNavigation")]
     public virtual ICollection<EmpPfBasicDetail> EmpPfBasicDetailIntSalarySourceNavigations { get; set; } = new List<EmpPfBasicDetail>();
 

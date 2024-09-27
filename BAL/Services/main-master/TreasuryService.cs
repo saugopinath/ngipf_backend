@@ -13,12 +13,14 @@ namespace ngipf_backend.BAL
             _TreasuryRepository = TreasuryRepository;
             _mapper = mapper;
         }
-        public async Task<List<DropdownStringCodeDTO>> GetTreasurys() 
+        public async Task<List<TresuryDTO>> GetTreasurys() 
         {
-            return (List<DropdownStringCodeDTO>)await _TreasuryRepository.GetSelectedColumnByConditionAsync(entity => entity.IntTreasuryCode != null && entity.IntTreasuryCode!="", entity => new DropdownStringCodeDTO
+            return (List<TresuryDTO>)await _TreasuryRepository.GetSelectedColumnByConditionAsync(entity => entity.IntTreasuryCode != null && entity.IntTreasuryCode!="", entity => new TresuryDTO
             {
+                IntTreasuryId= entity.IntTreasuryId,
                 Name = entity.TreasuryName,
-                Code = entity.IntTreasuryCode,
+                Code = entity.TreasuryCode,
+
             });
         }
     }

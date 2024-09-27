@@ -10,5 +10,10 @@
         public string Name { get; set; }
         public string Code { get; set; }
     }
-  
+    public class DropdownIntCodeDTO
+    {
+        public string Name { get; set; }
+        public int Code { get; set; }
+    }
+
 }

@@ -4,6 +4,6 @@ namespace ngipf_backend.BAL.Interfaces
 {
     public interface ITreasuryService
     {
-        public Task<List<DropdownStringCodeDTO>> GetTreasurys();
+        public Task<List<TresuryDTO>> GetTreasurys();
     }
 }

@@ -41,7 +41,7 @@ builder.Services.AddTransient<IWorkflowOfficeTypeRepository, WorkflowOfficeTypeR
 builder.Services.AddTransient<IWorkflowMasterCodeRepository, WorkflowMasterCodeRepository>();
 builder.Services.AddTransient<ILfplDdoMapRepository, LfplDdoMapRepository>();
 builder.Services.AddTransient<IWorkflowUserMappingRepository, WorkflowUserMappingRepository>();
-
+builder.Services.AddTransient<IStatusMasterRepository, StatusMasterRepository>();
 
 //Services
 
@@ -58,6 +58,7 @@ builder.Services.AddTransient<IWorkflowOfficeTypeService, WorkflowOfficeTypeServ
 builder.Services.AddTransient<IWorkflowMasterCodeService, WorkflowMasterCodeService>();
 builder.Services.AddTransient<ILfplDdoMapService, LfplDdoMapService>();
 builder.Services.AddTransient<IWorkflowUserMappingService, WorkflowUserMappingService>();
+builder.Services.AddTransient<IStatusMasterService, StatusMasterService>();
 
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();

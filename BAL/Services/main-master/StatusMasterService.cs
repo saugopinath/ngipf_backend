@@ -9,16 +9,16 @@ namespace ngipf_backend.BAL
     {
         private readonly IStatusMasterRepository _statusMasterRepository;
         private readonly IMapper _mapper;
-        public DdoService(IStatusMasterRepository StatusMasterRepository, IMapper mapper) {
+        public StatusMasterService(IStatusMasterRepository StatusMasterRepository, IMapper mapper) {
             _statusMasterRepository = StatusMasterRepository;
             _mapper = mapper;
         }
-        public async Task<List<DropdownStringCodeDTO>> GetList() 
+        public async Task<List<DropdownIntCodeDTO>> GetList(int master_type_id) 
         {
-            return (List<DropdownStringCodeDTO>)await _statusMasterRepository.GetSelectedColumnByConditionAsync(entity => TRUE, entity => new DropdownStringCodeDTO
+            return (List<DropdownIntCodeDTO>)await _statusMasterRepository.GetSelectedColumnByConditionAsync(entity => entity.MasterTypeId == master_type_id, entity => new DropdownIntCodeDTO
             {
-                Name = entity.Designation,
-                Code = entity.DdoCode,
+                Name = entity.MasterDescr,
+                Code = entity.IntMasterId,
             });
         }
     }
