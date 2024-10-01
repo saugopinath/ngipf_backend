@@ -22,6 +22,8 @@ namespace ngipf_backend.DAL
                     .Where(p => tresuryids.Contains(p.IntTreasuryId)).OrderBy(a => a.IntTreasuryId)
                     .Select(x => new TresuryDTO
                     {
+                        Name = x.TreasuryName,
+                        Code = x.IntTreasuryId.ToString(),
                         TreasuryCode = x.TreasuryCode,
                         IntTreasuryId = x.IntTreasuryId,
                         TreasuryName = x.TreasuryName

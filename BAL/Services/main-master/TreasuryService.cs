@@ -20,6 +20,11 @@ namespace ngipf_backend.BAL
                 IntTreasuryId= entity.IntTreasuryId,
                 Name = entity.TreasuryName,
                 Code = entity.TreasuryCode,
+                TreasuryCode = entity.TreasuryCode,
+                TreasuryName = entity.TreasuryName,
+                DistrictCode = entity.DistrictCode,
+                TreasurySrlNumber = entity.TreasurySrlNumber,
+                OfficerName = entity.OfficerName,
 
             });
         }
