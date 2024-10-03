@@ -17,35 +17,13 @@ namespace ngipf_backend.BAL
             _LfPlOpInterestCreditedStatusRepository = LfPlOpInterestCreditedStatusRepository;
             _mapper = mapper;
         }
-   
-        public async Task<List<InterestCreditedStatusDTO>> GetList(int int_treasury_id,int int_status_code=0,int int_operator_id=0)
-        {
 
-            DynamicListQueryParametersCommon dynamicListQueryParametersCommon = new DynamicListQueryParametersCommon();
-            dynamicListQueryParametersCommon.filterParameters = new List<FilterParameter>();
-            dynamicListQueryParametersCommon.sortParameters = new List<SortParameter>();
-          
-            FilterParameter filterParameter = new FilterParameter
+        public async Task<IEnumerable<InterestCreditedStatusDTO>> GetList(DynamicListQueryParameters dynamicListQueryParameters)
+        {
+            return await _LfPlOpInterestCreditedStatusRepository.GetSelectedColumnByConditionAsync(entity => true, entity => new InterestCreditedStatusDTO
             {
-                    Field = "IntTreasuryId",
-                    Value = int_treasury_id.ToString(),
-                    Operator = "equals"
-            };
-            dynamicListQueryParametersCommon.filterParameters.Add(filterParameter);
-            
-            SortParameter sortParameter1 = new SortParameter
-            {
-                Field = "IntHoaId",
-                Order = "ASC"
-            };
-            dynamicListQueryParametersCommon.sortParameters.Add(sortParameter1);
-        
-            return (List<InterestCreditedStatusDTO>) await _LfPlOpInterestCreditedStatusRepository.getallCommon(dynamicListQueryParametersCommon, entity => new InterestCreditedStatusDTO
-            {
-                Id = entity.Id,
-               
-            });
-            
+               Id=entity.Id
+            }, dynamicListQueryParameters);
         }
     }
 }

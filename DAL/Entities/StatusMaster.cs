@@ -15,7 +15,7 @@ public partial class StatusMaster
 
     [Column("master_descr")]
     [StringLength(250)]
-    public string? MasterDescr { get; set; }
+    public string MasterDescr { get; set; } = null!;
 
     [Column("master_type")]
     [StringLength(50)]
