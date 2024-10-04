@@ -42,7 +42,7 @@ builder.Services.AddTransient<IWorkflowMasterCodeRepository, WorkflowMasterCodeR
 builder.Services.AddTransient<ILfplDdoMapRepository, LfplDdoMapRepository>();
 builder.Services.AddTransient<IWorkflowUserMappingRepository, WorkflowUserMappingRepository>();
 builder.Services.AddTransient<IStatusMasterRepository, StatusMasterRepository>();
-
+builder.Services.AddTransient<ILfPlOpInterestCreditedStatusRepository, LfPlOpInterestCreditedStatusRepository>();
 //Services
 
 builder.Services.AddTransient<ITreasuryService, TreasuryService>();
@@ -59,7 +59,7 @@ builder.Services.AddTransient<IWorkflowMasterCodeService, WorkflowMasterCodeServ
 builder.Services.AddTransient<ILfplDdoMapService, LfplDdoMapService>();
 builder.Services.AddTransient<IWorkflowUserMappingService, WorkflowUserMappingService>();
 builder.Services.AddTransient<IStatusMasterService, StatusMasterService>();
-
+builder.Services.AddTransient<ILfPlOpInterestCreditedStatusService, LfPlOpInterestCreditedStatusService>();
 
 builder.Services.AddTransient<ITokenHelper, TokenHelper>();
 builder.Services.AddSingleton<ITokencache, Tokencache>();
